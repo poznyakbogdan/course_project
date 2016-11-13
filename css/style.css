@@ -1,0 +1,16 @@
+.pageLayer{
+	width: 1300px;
+	height: 600px;
+	margin: 0 auto;
+	background: lightblue;
+	padding-top: 50px;
+}
+#output{
+	width: 400px;
+	height: 250px;
+	border-radius: 15px;
+	background: #fff;
+	margin: 0px auto;
+	padding: 10px;
+	text-align: center;
+}

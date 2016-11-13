@@ -1,0 +1,397 @@
+@font-face{font-family:appleLogo;src:local("Lucida Grande");unicode-range:U+F8FF}
+.tiny{font-size:.7rem}
+.small{font-size:.9rem}
+.no_pointer_events{pointer-events:none}
+body{-webkit-font-smoothing:antialiased;font-size:1rem}
+h1,h2,h3{color:#3a4351}
+h3{margin-bottom:1.5rem}
+.section_divider{margin:0;border-top:0;border-bottom:2px solid #e9edf5}
+.brick_icon{display:none!important}
+.intro{height:auto;margin-bottom:12rem}
+.intro h1{font-size:3.5rem;font-weight:900;color:#2b3645}
+.intro h2{padding:0 2rem;font-size:1.5rem;font-weight:500;color:#68686f;line-height:1.8125rem}
+.intro p.alert{width:60rem;margin:0 auto}
+.plans{padding-bottom:3.75rem;background-color:#fff}
+.plan_container{width:60rem;margin:0 auto}
+.plan{width:14rem;margin:-9.625rem 1.3125rem 0 0;float:left}
+.plan:last-child{margin-right:0}
+.plan h4{display:inline-block;position:relative;top:-.25rem;margin-left:1.25rem;margin-bottom:.75rem;padding:.25rem .375rem;border-radius:3px;color:#fff;font-size:.75rem;line-height:.75rem;text-transform:uppercase}
+.plan h4 i{display:inline-block;position:relative;top:2px;left:4px;width:14px;height:14px;margin-top:-4px;background-image:url(/5317/img/pricing/arrow_down.png);background-size:100%;background-repeat:no-repeat}
+.plan ul{list-style:circle;margin-left:1.25em;font-size:1rem;line-height:1.4rem}
+.plan ul.coming_soon_list{font-style:italic}
+.plan li{margin-bottom:1.125rem}
+.plan li span{color:#69696f}
+.plan_card{min-height:17.5rem;position:relative;padding:1.375rem .4rem 1.25rem;border-radius:10px;color:#fff;text-align:center;text-shadow:0 3px 1px rgba(0,0,0,.1)}
+.plan_card.curr_plan:before{width:28px;height:28px;bottom:-10px;border-radius:4px;content:"";left:50%;opacity:1;-moz-opacity:1;-khtml-opacity:1;-webkit-transform:translateX(-50%) rotate(45deg);-moz-transform:translateX(-50%) rotate(45deg);-ms-transform:translateX(-50%) rotate(45deg);transform:translateX(-50%) rotate(45deg);position:absolute;-webkit-transition:all 110ms ease-out 0s;-moz-transition:all 110ms ease-out 0s;transition:all 110ms ease-out 0s}
+.plan_card h3{margin-bottom:.625rem;font-weight:900;text-shadow:none;color:#fff;position:relative;z-index:2}
+.plan_card h3 ts-icon{margin-right:4px;font-size:1.375rem}
+.plan_card .brick_icon{display:inline-block;width:28px;height:36px;margin-right:7px;vertical-align:bottom;background-size:100%;background-repeat:no-repeat}
+.plan_card.plan_card_coming_soon:after{display:block;content:'Coming 2016';position:absolute;top:4.125rem;right:0;width:100%;padding:.25rem 0;font-size:1.25rem;font-weight:900;line-height:5.25rem;opacity:.9}
+.plan_card .hover_card{display:block;opacity:0;-moz-opacity:0;-khtml-opacity:0;border-radius:10px;position:absolute;left:0;top:0;width:100%;height:100%;z-index:1;-webkit-transition:all 160ms ease-out 0s;-moz-transition:all 160ms ease-out 0s;transition:all 160ms ease-out 0s;font-size:1.00625rem}
+.plan_card .hover_card p{text-shadow:none;margin:0;padding:.8rem;position:absolute;top:50%;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+.plan_card .hover_card b{font-weight:900}
+.plan_card .hover_card a{margin-top:1rem;margin-bottom:0;font-size:1.00625rem}
+@media screen and (min-width:1024px){.plan_card{-webkit-transform:scale(1);-moz-transform:scale(1);-ms-transform:scale(1);transform:scale(1);-webkit-transition:all 120ms ease-out 0s;-moz-transition:all 120ms ease-out 0s;transition:all 120ms ease-out 0s;transition-timing-function:ease-out}
+.plan_card:hover{-webkit-transform:scale(1.07);-moz-transform:scale(1.07);-ms-transform:scale(1.07);transform:scale(1.07);box-shadow:0 0 9px 0 rgba(0,0,0,.2)}
+.plan_card:hover .hover_card{opacity:1;-moz-opacity:1;-khtml-opacity:1}
+.plan_card:hover:before{opacity:0;-moz-opacity:0;-khtml-opacity:0;bottom:0}
+}
+@media screen and (max-width:767px){.plan_card .hover_card{opacity:1;-moz-opacity:1;-khtml-opacity:1;position:static;top:auto;left:auto;background:0 0;background-color:transparent!important}
+.plan_card .hover_card p{position:static;padding:0;top:auto;-webkit-transform:none;-moz-transform:none;-ms-transform:none;transform:none;border-top:1px solid rgba(255,255,255,.2);padding-top:1rem}
+}
+.no_buttons .plan_card{min-height:17.5rem}
+.plan_price{position:relative;display:block;height:6rem;font-size:5.5rem;line-height:6.5rem;font-weight:900;margin-bottom:.5rem;letter-spacing:-2px;margin-left:-2.5rem}
+.plan_price .cents{position:absolute;top:-.25rem;font-size:1.5rem;letter-spacing:-1px;font-weight:700}
+.plan_price .currency{position:relative;top:-1.75rem;font-weight:400;font-size:3rem;letter-spacing:0}
+.plan_price_details{display:block;margin-bottom:1.4rem;font-size:.875rem;line-height:1rem;opacity:.8;-moz-opacity:.8;-khtml-opacity:.8;text-shadow:none}
+a.plan_price_details{color:#fff;text-decoration:underline}
+.current_plan,.detail_button{text-align:center;display:block;min-width:7rem;width:100%;margin-top:1.5rem;padding-top:13px;padding-bottom:14px;font-weight:700;text-shadow:none;font-size:1.00625rem;border-radius:6px}
+.current_plan{color:#ABABAC;border:2px solid #BCBCBD;padding-top:9px;padding-bottom:10px}
+.current_plan.invisible{opacity:0;visibility:hidden}
+.plan_subhead{margin:1.375em 0;padding:0 0 1.25em;border-bottom:1px solid transparent}
+.plan_subhead h3{margin-bottom:0;font-size:1.25rem;font-weight:900}
+.plan_subhead p{margin-bottom:0;opacity:.8;-moz-opacity:.8;-khtml-opacity:.8;font-size:1.125rem}
+#plan_lite ul{color:#8a74b9}
+#plan_lite .plan_card,#plan_lite .plan_card:before,#plan_lite h4,#plan_lite h4:before{background-color:#8a74b9}
+#plan_lite .plan_price{margin-left:-1rem}
+#plan_lite .brick_icon{background-image:url(/66f9/img/pricing/brick_lite.png);background-position:-2px -2px}
+#plan_lite .detail_button{background-color:#6e54a6}
+#plan_lite .plan_subhead{border-color:#8a74b9}
+#plan_lite .plan_subhead h3,#plan_lite .plan_subhead p{color:#8a74b9}
+#plan_lite .hover_card{background-color:rgba(138,116,185,.95)}
+#plan_standard ul{color:#4cb992}
+#plan_standard .plan_card,#plan_standard .plan_card:before,#plan_standard h4,#plan_standard h4:before{background-color:#4cb992}
+#plan_standard .brick_icon{background-image:url(/66f9/img/pricing/brick_standard.png);margin-right:11px}
+#plan_standard .detail_button{background-color:#3b9776}
+#plan_standard .plan_subhead{border-color:#4cb992}
+#plan_standard .plan_subhead h3,#plan_standard .plan_subhead p{color:#4cb992}
+#plan_standard .hover_card{background-color:rgba(76,185,146,.95)}
+#plan_plus ul{color:#3499e0}
+#plan_plus .plan_card,#plan_plus .plan_card:before,#plan_plus h4,#plan_plus h4:before{background-color:#3499e0}
+#plan_plus .brick_icon{background-image:url(/66f9/img/pricing/brick_plus.png);background-size:contain}
+#plan_plus .detail_button{background-color:#1e7fc3}
+#plan_plus .plan_subhead{border-color:#3499e0}
+#plan_plus .plan_subhead h3,#plan_plus .plan_subhead p{color:#3499e0}
+#plan_plus .hover_card{background-color:rgba(52,153,224,.95)}
+#plan_enterprise ul{color:#efb57c}
+#plan_enterprise .plan_card,#plan_enterprise .plan_card:before,#plan_enterprise h4,#plan_enterprise h4:before{background-color:#efb57c}
+#plan_enterprise .plan_card.plan_card_coming_soon:after,#plan_enterprise h4.plan_card_coming_soon:after{background-color:#e99b4f}
+#plan_enterprise .plan_price{margin-left:-1rem}
+#plan_enterprise .brick_icon{background-image:url(/b9ff/img/pricing/brick_enterprise.png);background-size:contain}
+#plan_enterprise .detail_button{background-color:#e99b4f}
+#plan_enterprise .plan_subhead{border-color:#efb57c}
+#plan_enterprise .plan_subhead h3,#plan_enterprise .plan_subhead p{color:#efb57c}
+#plan_enterprise .hover_card{background-color:rgba(239,181,124,.95)}
+#plan_modal{width:940px;margin-left:-470px}
+#plan_modal.modal.fade.in{top:20%}
+#plan_modal .modal-body{padding:.5rem;height:500px;max-height:none;overflow-y:hidden}
+#plan_modal .close{position:absolute;top:.5rem;right:1rem}
+#plan_modal #plan_calculator{float:left;padding:4.75rem 0 3rem 4rem;width:700px}
+#plan_modal .plan_sentence{font-weight:700;font-size:2rem;line-height:2.25rem;margin-bottom:2rem}
+#plan_modal .plan_description{display:none;float:left;padding:1.5rem 3rem 3rem 4rem;width:700px}
+#plan_modal .plan_description .ready_to_try_slack{padding:1rem 0 0}
+#plan_modal .plan_description .ready_to_try_slack form input[type=email],#plan_modal .plan_description .ready_to_try_slack form input[type=text]{width:14.25rem}
+#plan_modal .plan_preview{display:none;float:left;width:200px;height:398px}
+#plan_modal .plan_preview .plan{width:auto;height:auto;padding:1rem;margin:0 0 1rem;float:none;border-radius:10px;color:#fff;text-align:center;text-shadow:0 3px 1px rgba(0,0,0,.1)}
+#plan_modal .plan_preview .plan h3{margin-bottom:.75rem;color:#fff;font-weight:900}
+#plan_modal .plan_preview .plan h3 .brick_icon{display:inline-block;width:28px;height:36px;margin-right:7px;vertical-align:bottom;background-size:100%;background-repeat:no-repeat}
+#plan_modal .plan_preview .plan .plan_price{margin-bottom:.5rem;margin-left:-1.25rem}
+#plan_modal .plan_preview#plan_lite_preview .plan{background-color:#8a74b9}
+#plan_modal .plan_preview#plan_lite_preview .plan h3 .brick_icon{background-image:url(/66f9/img/pricing/brick_lite.png);background-position:-2px -2px}
+#plan_modal .plan_preview#plan_lite_preview .plan .plan_lite_price_details{display:inline-block;width:6.5rem;font-size:.875rem;line-height:1rem;opacity:.8;text-shadow:none}
+#plan_modal .plan_preview#plan_standard_preview .plan{background-color:#4cb992}
+#plan_modal .plan_preview#plan_standard_preview .plan h3 .brick_icon{background-image:url(/66f9/img/pricing/brick_standard.png);margin-right:11px}
+#plan_modal .plan_preview#plan_standard_preview .plan .plan_price{margin-left:-2.25rem}
+#plan_modal .plan_preview .preview_details{padding-left:.5rem;font-size:1rem;font-weight:500;color:#69696f}
+#plan_modal.lite #plan_lite_description,#plan_modal.lite #plan_lite_preview,#plan_modal.standard #plan_standard_description,#plan_modal.standard #plan_standard_preview{display:block}
+.ready_to_try_slack{padding:4.625rem 0;text-align:center}
+.ready_to_try_slack .section_content{width:60rem;margin:0 auto}
+.ready_to_try_slack h3{font-size:2.25rem;font-weight:900}
+.ready_to_try_slack form input[type=email],.ready_to_try_slack form input[type=text]{padding:.75rem 1rem;border-radius:.25rem;margin:.25rem .4375rem 0 0;font-size:1.1rem;font-family:Slack-Lato,appleLogo,sans-serif,sans-serif;-webkit-appearance:none;vertical-align:bottom;height:48px;width:17.25rem;transition:border-color .1s}
+.ready_to_try_slack form input[type=submit],.ready_to_try_slack form input[type=submit]:hover{padding:.8125rem 1.375rem .975rem;font-size:1.25rem}
+.ready_to_try_slack form ::-webkit-input-placeholder{color:#aaa;font-weight:700}
+.ready_to_try_slack form :-moz-placeholder{color:#aaa;font-weight:700}
+.ready_to_try_slack form ::-moz-placeholder{color:#aaa;font-weight:700}
+.ready_to_try_slack form :-ms-input-placeholder{color:#aaa;font-weight:700}
+.ready_to_try_slack.top{background-color:#46b1f9;color:#fff}
+.ready_to_try_slack.top h3{color:inherit}
+.ready_to_try_slack.top form input[type=email],.ready_to_try_slack.top form input[type=text]{background:#fff;border-color:#fff;color:#555459}
+.ready_to_try_slack.top form input[type=email]:focus,.ready_to_try_slack.top form input[type=email]:hover,.ready_to_try_slack.top form input[type=text]:focus,.ready_to_try_slack.top form input[type=text]:hover{border-color:#439fe0}
+.ready_to_try_slack.top form input[type=submit],.ready_to_try_slack.top form input[type=submit]:hover{color:#fff!important;background-color:transparent;border:2px solid #fff;padding:.71rem 1.375rem .875rem}
+.ready_to_try_slack.bottom{background-color:#fff}
+.ready_to_try_slack.bottom form{margin-bottom:5rem}
+.ready_to_try_slack.bottom .ts_icon_arrow_large_right{vertical-align:sub}
+.from_the_wall_of_love{position:relative;padding:4rem 0 3rem;background-color:#fff;border-bottom:2px solid #e9edf5;font-size:1.25rem;text-align:center}
+.from_the_wall_of_love h3{font-size:2.25rem;line-height:2.5rem;font-weight:900}
+.from_the_wall_of_love h3 .ts_icon_heart_o:before{color:#ec2a70;font-size:2.5rem;font-weight:500;margin-right:.5rem}
+.from_the_wall_of_love a .ts_icon_arrow_large_right{vertical-align:middle}
+.from_the_wall_of_love:after,.from_the_wall_of_love:before{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+.from_the_wall_of_love:before{content:" ";position:absolute;height:100%;width:50%;top:0;left:-250px;background-image:-webkit-linear-gradient(right,rgba(255,255,255,0),#fff),-webkit-linear-gradient(right,rgba(255,255,255,0),#fff);background-image:-moz-linear-gradient(right,rgba(255,255,255,0),#fff),-moz-linear-gradient(right,rgba(255,255,255,0),#fff);background-image:-ms-linear-gradient(right,rgba(255,255,255,0),#fff),-ms-linear-gradient(right,rgba(255,255,255,0),#fff);background-image:-o-linear-gradient(right,rgba(255,255,255,0),#fff),-o-linear-gradient(right,rgba(255,255,255,0),#fff);background-size:100%;z-index:10}
+.from_the_wall_of_love:after{content:" ";position:absolute;height:100%;width:50%;top:0;right:-300px;background-image:-webkit-linear-gradient(left,rgba(255,255,255,0),#fff),-webkit-linear-gradient(left,rgba(255,255,255,0),#fff);background-image:-moz-linear-gradient(left,rgba(255,255,255,0),#fff),-moz-linear-gradient(left,rgba(255,255,255,0),#fff);background-image:-ms-linear-gradient(left,rgba(255,255,255,0),#fff),-ms-linear-gradient(left,rgba(255,255,255,0),#fff);background-image:-o-linear-gradient(left,rgba(255,255,255,0),#fff),-o-linear-gradient(left,rgba(255,255,255,0),#fff);z-index:10}
+.from_the_wall_of_love .tweet_carousel_container{position:relative;left:50%;overflow:hidden;width:5580px;height:280px;padding:.5rem 0;margin:0 0 0 -2456px;z-index:1;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+@media only screen and (max-width:640px){.from_the_wall_of_love .tweet_carousel_container{margin:0 0 0 -1812.5px}
+}
+@media only screen and (max-width:320px){.from_the_wall_of_love .tweet_carousel_container{margin:0 0 0 -1362.5px}
+}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel{position:relative;list-style:none;margin:2px 0;padding:0}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li{position:absolute;top:120px;margin-left:40px;width:493px;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+@media only screen and (max-width:640px){.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li{width:350px}
+}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li blockquote{visibility:hidden;margin:0}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='0']{left:0}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='1']{left:543px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='2']{left:1086px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='3']{left:1629px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='4']{left:2172px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='5']{left:2715px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='6']{left:3258px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='7']{left:3801px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='8']{left:4344px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='9']{left:4887px}
+@media only screen and (max-width:640px){.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='0']{left:0}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='1']{left:400px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='2']{left:800px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='3']{left:1200px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='4']{left:1600px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='5']{left:2000px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='6']{left:2400px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='7']{left:2800px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='8']{left:3200px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='9']{left:3600px}
+}
+.from_the_wall_of_love .tweet_carousel_container.animate{-webkit-transition:-webkit-transform .5s ease;-moz-transition:-moz-transform .5s ease;transition:transform .5s ease}
+.from_the_wall_of_love .tweet_carousel_container.animate.left{-webkit-transform:translate3d(543px,0,0);-moz-transform:translate3d(543px,0,0);-ms-transform:translate3d(543px,0,0);transform:translate3d(543px,0,0)}
+.from_the_wall_of_love .tweet_carousel_container.animate.right{-webkit-transform:translate3d(-543px,0,0);-moz-transform:translate3d(-543px,0,0);-ms-transform:translate3d(-543px,0,0);transform:translate3d(-543px,0,0)}
+@media only screen and (max-width:640px){.from_the_wall_of_love .tweet_carousel_container.animate.left{-webkit-transform:translate3d(400px,0,0);-moz-transform:translate3d(400px,0,0);-ms-transform:translate3d(400px,0,0);transform:translate3d(400px,0,0)}
+.from_the_wall_of_love .tweet_carousel_container.animate.right{-webkit-transform:translate3d(-400px,0,0);-moz-transform:translate3d(-400px,0,0);-ms-transform:translate3d(-400px,0,0);transform:translate3d(-400px,0,0)}
+}
+@media only screen and (max-width:320px){.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li{width:250px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='0']{left:0}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='1']{left:300px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='2']{left:600px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='3']{left:900px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='4']{left:1200px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='5']{left:1500px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='6']{left:1800px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='7']{left:2100px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='8']{left:2400px}
+.from_the_wall_of_love .tweet_carousel_container .tweet_carousel li[data-position='9']{left:2700px}
+.from_the_wall_of_love .tweet_carousel_container.animate.left{-webkit-transform:translate3d(300px,0,0);-moz-transform:translate3d(300px,0,0);-ms-transform:translate3d(300px,0,0);transform:translate3d(300px,0,0)}
+.from_the_wall_of_love .tweet_carousel_container.animate.right{-webkit-transform:translate3d(-300px,0,0);-moz-transform:translate3d(-300px,0,0);-ms-transform:translate3d(-300px,0,0);transform:translate3d(-300px,0,0)}
+}
+.tweet_carousel_controls a{display:block;position:absolute;top:15rem;left:50%;width:2rem;height:3rem;line-height:3rem;color:#babbbf;text-decoration:none;z-index:10}
+.tweet_carousel_controls a i.ts_icon:before{font-size:1.875rem}
+.tweet_carousel_controls a.left_arrow{margin-left:-286px}
+.tweet_carousel_controls a.right_arrow{margin-left:259px}
+.animate .tweet_carousel_controls a{z-index:0}
+.tweet_carousel_controls a:hover{text-decoration:none}
+@media only screen and (max-width:640px){.tweet_carousel_controls{display:none}
+}
+.happy_customers{padding:6rem 0 5rem;background-color:#fff;font-size:1.25rem;text-align:center}
+.happy_customers h3{font-size:2.25rem;line-height:2.5rem;font-weight:900}
+.happy_customers .customer_logos{width:793px;height:225px;margin:2rem auto 0;background-image:url(/bf38/img/customer-logos/standard/black/logos-black.png);background-repeat:no-repeat;background-size:contain;background-position:center center;opacity:.5}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.happy_customers .customer_logos{background-image:url(/bf38/img/customer-logos/retina/black/logos-black@2x.png)}
+}
+@media screen and (max-width:900px){.happy_customers .customer_logos{width:100%;height:30vw}
+}
+@media only screen and (max-width:500px){.happy_customers .customer_logos{margin-top:1.6rem;height:60vw;background-image:url(/bf38/img/customer-logos/standard/black/logos-black-mobile.png)}
+}
+.happy_customers .hear_more{-webkit-transition:all .2s ease-out 0s;-moz-transition:all .2s ease-out 0s;transition:all .2s ease-out 0s}
+.happy_customers .hear_more .ts_icon_arrow_right:before{font-size:1.75rem;vertical-align:bottom;margin-left:-5px;opacity:0;-moz-opacity:0;-khtml-opacity:0;-webkit-transition:all .2s ease-out 0s;-moz-transition:all .2s ease-out 0s;transition:all .2s ease-out 0s}
+@media screen and (min-width:769px){.happy_customers .hear_more:hover{margin-left:5px}
+.happy_customers .hear_more:hover .ts_icon_arrow_right:before{opacity:1;-moz-opacity:1;-khtml-opacity:1;margin-left:0}
+}
+.new_signup{padding:3rem}
+.new_signup.top{color:#fff}
+.new_signup .section_content{width:60rem;margin:0 auto}
+.new_signup.bottom .section_content{margin:2rem auto;border:1px solid #DDD;border-radius:.5rem;padding:2.5rem 2rem 3rem}
+.new_signup p{font-size:1.5rem;line-height:2rem;max-width:600px;margin-right:3rem;padding-left:8rem;float:left}
+@media only screen and (max-width:1024px){.plan_card{min-height:18.25rem}
+.new_signup{text-align:center}
+.new_signup .section_content{width:100%}
+.new_signup p{max-width:460px;margin:0 auto 1rem;padding-left:0;float:none}
+}
+.amazing_teams_do_more{padding:6.75rem 0;background-color:#42c299;color:#fff;font-size:1.25rem}
+.amazing_teams_do_more .section_content{min-height:265px;width:60rem;margin:0 auto;padding:0 24rem 0 0;background-image:url(/c3b2f/img/survey/survey_chat.png);background-size:contain;background-repeat:no-repeat;background-position:top right}
+.amazing_teams_do_more h3{font-size:2.25rem;font-weight:900;color:#fff;display:block;padding-top:2rem;line-height:2.5rem}
+.amazing_teams_do_more p{margin-bottom:1.125rem;line-height:1.75rem}
+.amazing_teams_do_more em{color:#F9ED00;font-style:normal;font-family:Slack-Lato,appleLogo,sans-serif;font-weight:900}
+.amazing_teams_do_more a.btn{font-size:1.1875rem;padding:14px 22px 16px}
+.amazing_teams_do_more a.btn:after{border-width:2px}
+.amazing_teams_do_more a.btn:hover{color:#42c299!important}
+@media screen and (max-width:480px){.amazing_teams_do_more a.btn{width:100%;text-align:center}
+}
+.our_pricing_perspective{padding:8rem 0 7rem;background-color:#6a4ca6;font-size:1.25rem;color:#fff}
+.our_pricing_perspective .section_content{width:60rem;margin:0 auto;padding:0 0 0 26rem;background:url(/b9ff/img/pricing/purple_rocket.png) no-repeat;background-size:388px 489px}
+.our_pricing_perspective h3{font-size:2.25rem;line-height:2.5rem;font-weight:900;color:#fff}
+.our_pricing_perspective p{margin-bottom:.75rem;line-height:1.75rem}
+.fair_billing_policy{padding:8.75rem 0;border-top:10px solid #e9edf5;background-color:#fff;font-size:1.25rem}
+.fair_billing_policy .section_content{width:60rem;margin:0 auto;padding:0 24rem 0 0;background-image:url(/66f9/img/pricing/invoice.png);background-size:307px 341px;background-repeat:no-repeat;background-position:40rem 0}
+.fair_billing_policy h3{font-size:2.25rem;font-weight:900}
+.fair_billing_policy p{margin-bottom:1.125rem;line-height:1.75rem}
+.nonprofit_pricing{padding:9rem 0;background-color:#f9b644;font-size:1.25rem;color:#2d2c30}
+.nonprofit_pricing .section_content{width:60rem;margin:0 auto;padding:0 0 0 20.5rem;background-image:url(/b9ff/img/pricing/nonprofit_ribbon.png);background-size:307px 317px;background-repeat:no-repeat}
+.nonprofit_pricing h3{font-size:2.25rem;line-height:2.5rem;font-weight:900;color:#fff}
+.nonprofit_pricing p{margin-bottom:.75rem;line-height:1.75rem}
+.nonprofit_pricing p a{font-weight:700;color:#2d2c30}
+.nonprofit_pricing p a:hover{text-decoration:underline}
+.nonprofit_pricing .slack_for_good_logos{background-image:url(/97d7c/img/pricing/slack_for_good_logos.png);background-repeat:no-repeat;background-size:100%;margin-top:1.5rem;height:8.1rem;width:100%}
+.nonprofit_pricing .btn_outline,.nonprofit_pricing .btn_outline:hover{padding:.8125rem 1.375rem .875rem;font-size:1.25rem;color:#2d2c30!important;border-color:#555459;background-color:transparent}
+.need_a_hand{padding:5.625rem 0 6rem;border-top:10px solid #e8e8e8;background-color:#f9f9f9;font-size:1.25rem}
+.need_a_hand .section_content{width:60rem;margin:0 auto;padding:0 20rem 0 0;background-image:url(/b9ff/img/pricing/life_preserver.png);background-size:225px 187px;background-repeat:no-repeat;background-position:45.25rem .375rem}
+.need_a_hand h3{font-size:2.25rem;line-height:2.5rem;font-weight:900}
+.need_a_hand p{margin-bottom:.75rem;line-height:1.75rem}
+.need_a_hand p:last-of-type{margin-bottom:1.9rem}
+.need_a_hand .btn_info{padding:.8125rem 1.375rem .875rem;font-size:1.25rem;color:#fff!important;background-color:#3aa3e3!important}
+.need_a_hand li{margin-bottom:1.55rem}
+.common_questions_and_resources{padding:5rem 0 6.25rem;background-color:#fff;font-size:1.25rem}
+.common_questions_and_resources .section_content{width:60rem;margin:0 auto;padding:0 0 0 15.625rem}
+.common_questions_and_resources h2{font-size:3.5rem;line-height:3.5rem;text-align:center;font-weight:900;margin-left:-10.75rem;margin-bottom:0}
+.common_questions_and_resources h2 .common_questions{width:50px;height:50px;top:-12px}
+.common_questions_and_resources h3{margin-bottom:.875rem;font-size:2.25rem;font-weight:900}
+.common_questions_and_resources p{margin-bottom:.75rem;line-height:1.75rem}
+.common_questions_and_resources .question_category{padding-top:6.25rem}
+@media screen and (max-width:480px){.common_questions_and_resources .question_category{padding-top:0}
+}
+.common_questions_and_resources ul.question_list{list-style:none;margin-left:0;margin-bottom:0}
+.common_questions_and_resources ul.question_list li{padding:1.375rem 0 .875rem;border-bottom:2px solid #e9edf5}
+.common_questions_and_resources ul.question_list li h4{margin-bottom:1rem}
+.common_questions_and_resources ul.question_list li h4 a{display:block;position:relative;padding-right:5rem;color:#2b3645;font-weight:500}
+.common_questions_and_resources ul.question_list li h4 a:hover{color:#2b3645;text-decoration:none}
+.common_questions_and_resources ul.question_list li h4 a i.ts_icon:before{display:block;position:absolute;top:0;right:1rem;font-size:1.875rem;color:#3aa3e3}
+.common_questions_and_resources ul.question_list li p,.common_questions_and_resources ul.question_list li ul{display:none;padding-right:5rem;font-size:1.125rem;line-height:1.5rem;color:#68686f}
+.common_questions_and_resources ul.question_list li li{border-bottom:none;margin-bottom:.75rem;padding-top:0;padding-bottom:0;list-style-type:disc}
+.common_questions_and_resources ul.question_list li.expanded h4 a i.ts_icon:before{color:#9e9ea6}
+.common_questions_and_resources ul.question_list li.expanded p,.common_questions_and_resources ul.question_list li.expanded ul{display:block}
+.common_questions_and_resources ul.question_list li:hover{background:#fbfcfd}
+.common_questions_and_resources ul.question_list li.expanded:hover h4 a i.ts_icon:before{color:#3aa3e3}
+.common_questions_and_resources ul.getting_started_list{list-style:none;margin-left:0}
+.common_questions_and_resources ul.getting_started_list li{box-sizing:content-box;min-height:64px;padding:1.5rem 0 2rem 5.125rem;border-bottom:2px solid #e9edf5;font-size:1.125rem;background-size:64px 64px;background-repeat:no-repeat;background-position:0 1.75rem;line-height:4rem}
+.common_questions_and_resources ul.getting_started_list li.overview{background-image:url(/0180/img/pricing/getting_started_overview.png)}
+.common_questions_and_resources ul.getting_started_list li.tips{background-image:url(/0180/img/pricing/getting_started_blog.png)}
+.common_questions_and_resources ul.getting_started_list li.other_teams{background-image:url(/66f9/img/pricing/getting_started_other_teams.png)}
+.common_questions_and_resources ul.getting_started_list li.help_center{background-image:url(/66f9/img/pricing/getting_started_help_center.png)}
+.common_questions_and_resources ul.getting_started_list li.follow_us{background-image:url(/66f9/img/pricing/getting_started_twitter.png)}
+.common_questions_and_resources ul.getting_started_list li.contact_us{background-image:url(/0180/img/pricing/getting_started_contact_us.png)}
+.common_questions_and_resources ul.getting_started_list li span{display:inline-block;vertical-align:middle;line-height:1.5rem}
+.common_questions_nav{position:relative;float:left;margin-left:-15.625rem;transition:transform .15s cubic-bezier(.2,.3,.25,.9);padding-top:9.25rem}
+.common_questions_nav h3{display:block;position:absolute;bottom:16.5rem;font-size:2rem;line-height:2rem;text-align:center;font-weight:900}
+.common_questions_nav ul{list-style:none;margin-left:0}
+.common_questions_nav ul li a{display:block;width:12.75rem;height:2.75rem;margin-bottom:.375rem;padding-top:.5625rem;padding-left:0;border-radius:.25rem;font-size:1.125rem;color:#555459;transition:padding-left .2s ease-out}
+.common_questions_nav ul li a:hover{padding-left:.875rem;background-color:#e4f2fb;color:#3aa3e3;text-decoration:none}
+.common_questions_nav ul li a.active{padding-left:.875rem;background-color:#3aa3e3;color:#fff;text-decoration:none;cursor:default}
+.common_questions_nav.fixed{position:fixed;top:50%;left:50%;float:none;margin-top:-8rem;margin-left:-30rem}
+.common_questions_nav.fixed h3{opacity:1;margin-bottom:.875rem}
+.common_questions_nav.stuck_to_bottom{position:absolute;margin-top:0}
+body.nav_open .common_questions_nav.fixed{-webkit-transform:translate3d(280px,0,0);-moz-transform:translate3d(280px,0,0);-ms-transform:translate3d(280px,0,0);transform:translate3d(280px,0,0)}
+.back_to_the_top{padding:0 0 1rem;background-color:#fff;text-align:center}
+.back_to_the_top .section_content{width:60rem;margin:0 auto}
+.back_to_the_top .btn{color:#3aa3e3!important;background-color:#e8e8e8;font-weight:700;text-shadow:none}
+.back_to_the_top .btn:focus,.back_to_the_top .btn:hover{background-color:#e8e8e8}
+.back_to_the_top .btn .ts-icon{vertical-align:bottom}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.plan h4 i{background-image:url(/66f9/img/pricing/arrow_down@2x.png)}
+#plan_lite .brick_icon,#plan_preview.lite .plan h3 .brick_icon{background-image:url(/66f9/img/pricing/brick_lite@2x.png)}
+#plan_preview.standard .plan h3 .brick_icon,#plan_standard .brick_icon{background-image:url(/66f9/img/pricing/brick_standard@2x.png)}
+#plan_plus .brick_icon{background-image:url(/66f9/img/pricing/brick_plus@2x.png)}
+#plan_enterprise .brick_icon{background-image:url(/66f9/img/pricing/brick_enterprise@2x.png)}
+.our_pricing_perspective .section_content{background-image:url(/66f9/img/pricing/purple_rocket@2x.png)}
+.amazing_teams_do_more .section_content{background-image:url(/c3b2f/img/survey/survey_chat@2x.png)}
+.fair_billing_policy .section_content{background-image:url(/d0b9/img/pricing/invoice@2x.png)}
+.nonprofit_pricing .section_content{background-image:url(/b9ff/img/pricing/nonprofit_ribbon@2x.png)}
+.nonprofit_pricing .section_content .slack_for_good_logos{background-image:url(/97d7c/img/pricing/slack_for_good_logos@2x.png)}
+.need_a_hand .section_content{background-image:url(/b9ff/img/pricing/life_preserver@2x.png)}
+.common_questions_and_resources ul.getting_started_list li.overview{background-image:url(/66f9/img/pricing/getting_started_overview@2x.png)}
+.common_questions_and_resources ul.getting_started_list li.tips{background-image:url(/66f9/img/pricing/getting_started_blog@2x.png)}
+.common_questions_and_resources ul.getting_started_list li.other_teams{background-image:url(/66f9/img/pricing/getting_started_other_teams@2x.png)}
+.common_questions_and_resources ul.getting_started_list li.help_center{background-image:url(/66f9/img/pricing/getting_started_help_center@2x.png)}
+.common_questions_and_resources ul.getting_started_list li.follow_us{background-image:url(/66f9/img/pricing/getting_started_twitter@2x.png)}
+.common_questions_and_resources ul.getting_started_list li.contact_us{background-image:url(/66f9/img/pricing/getting_started_contact_us@2x.png)}
+}
+@media only screen and (max-width:1024px){.intro p.alert,.plan_container{width:44rem}
+.plan{width:10.4375rem;margin-right:.75rem}
+.plan:last-child{margin-right:0}
+.plan_card h3{font-size:1.375rem}
+.plan_card.plan_card_coming_soon:after{top:4rem;font-size:1rem}
+.plan_price{font-size:4.5rem;line-height:6rem}
+.plan_price .currency{font-size:2.5rem}
+.plan_subhead h3,.plan_subhead p{font-size:1.125rem}
+.amazing_teams_do_more,.fair_billing_policy,.from_the_wall_of_love,.happy_customers,.need_a_hand,.nonprofit_pricing,.our_pricing_perspective,.ready_to_try_slack{padding:3.5rem 0}
+.amazing_teams_do_more .section_content,.fair_billing_policy .section_content,.from_the_wall_of_love .section_content,.happy_customers .section_content,.need_a_hand .section_content,.nonprofit_pricing .section_content,.our_pricing_perspective .section_content,.ready_to_try_slack .section_content{width:100%}
+.happy_customers{padding-left:2rem;padding-right:2rem}
+.our_pricing_perspective .section_content{padding:0 3rem 0 18rem;background-size:260px 328px;background-position:1.25rem 1.25rem}
+.amazing_teams_do_more .section_content{padding:0 19rem 0 3rem;background-size:243px 195px;background-position:right 1.75rem top .875rem}
+.fair_billing_policy .section_content{padding:0 19rem 0 3rem;background-size:248px 275px;background-position:right 1.75rem top .875rem}
+.nonprofit_pricing .section_content{padding:0 3rem 0 17rem;background-size:252px 260px;background-position:1rem 0}
+.nonprofit_pricing .section_content .slack_for_good_logos{height:9rem}
+.need_a_hand .section_content{padding:0 15rem 0 3rem;background-position:right 0 top .875rem}
+.common_questions_and_resources .section_content{width:100%;padding:0 3rem}
+.common_questions_and_resources h2{margin-left:0}
+.common_questions_nav{display:none}
+#plan_modal{width:708px;margin-left:-354px}
+#plan_modal #plan_lite_preview.plan_preview,#plan_modal #plan_standard_preview.plan_preview{display:none}
+#plan_modal .plan_description{padding-left:3rem}
+}
+@media only screen and (max-width:767px){.intro{height:auto;margin-bottom:2rem;padding-left:2rem;padding-right:2rem}
+.intro p.alert{width:100%}
+.plans{padding-bottom:1rem}
+.plan_container{width:100%;padding-top:2rem}
+.plan{width:100%;margin:0 0 2rem;padding:0 2rem 0 16rem;float:none;overflow:hidden;position:relative}
+.plan_col{float:left;width:12rem;margin-left:-14rem}
+.plan_card{width:100%}
+.plan_card h3{font-size:1.5rem}
+.plan_subhead{margin-top:0}
+.amazing_teams_do_more,.fair_billing_policy,.from_the_wall_of_love,.happy_customers,.need_a_hand,.nonprofit_pricing,.our_pricing_perspective,.ready_to_try_slack{padding:2rem 0}
+.amazing_teams_do_more .section_content,.fair_billing_policy .section_content,.from_the_wall_of_love .section_content,.happy_customers .section_content,.need_a_hand .section_content,.nonprofit_pricing .section_content,.our_pricing_perspective .section_content,.ready_to_try_slack .section_content{padding:0 3rem}
+.amazing_teams_do_more .section_content h3,.fair_billing_policy .section_content h3,.from_the_wall_of_love .section_content h3,.happy_customers .section_content h3,.need_a_hand .section_content h3,.nonprofit_pricing .section_content h3,.our_pricing_perspective .section_content h3,.ready_to_try_slack .section_content h3{font-size:1.875rem}
+.amazing_teams_do_more h3{line-height:2rem}
+.ready_to_try_slack .section_content{width:20.5rem;padding:0}
+.ready_to_try_slack .section_content form input[type=email],.ready_to_try_slack .section_content form input[type=text],.ready_to_try_slack .section_content form input[type=submit]{display:block;width:20.5rem;margin-bottom:.375rem}
+.ready_to_try_slack.bottom{padding-top:6rem}
+.from_the_wall_of_love h3 .ts_icon_heart_o{display:none}
+.amazing_teams_do_more,.fair_billing_policy,.need_a_hand,.nonprofit_pricing,.our_pricing_perspective{padding-top:0}
+.amazing_teams_do_more .section_content,.fair_billing_policy .section_content,.need_a_hand .section_content,.nonprofit_pricing .section_content,.our_pricing_perspective .section_content{padding-top:21rem;background-position:center top 0}
+.amazing_teams_do_more .section_content{padding-top:14rem;background-position:center top 2rem}
+.fair_billing_policy .section_content{padding-top:19rem;background-position:center top 1rem}
+.nonprofit_pricing .section_content{padding-top:16.5rem}
+.need_a_hand .section_content{padding-top:12.5rem;background-position:center top 1.5rem}
+.common_questions_and_resources{padding-top:4rem}
+.common_questions_and_resources h2{margin-bottom:5rem;font-size:3rem}
+.common_questions_and_resources h3{font-size:1.875rem}
+.common_questions_and_resources .question_category{margin-bottom:5rem}
+#plan_modal{width:96%;margin-left:-48%}
+#plan_modal.modal.fade.in{top:0}
+#plan_modal .modal-body{height:auto}
+#plan_modal .plan_sentence{font-size:1.5rem;line-height:1.75rem}
+#plan_modal .plan_description{width:100%;padding-left:2rem;padding-right:2rem}
+#plan_modal .plan_description .ready_to_try_slack{width:20.5rem;margin:0 auto}
+#plan_modal .plan_description .ready_to_try_slack form input[type=email],#plan_modal .plan_description .ready_to_try_slack form input[type=text],#plan_modal .plan_description .ready_to_try_slack form input[type=submit]{display:block;width:100%;margin-bottom:.375rem}
+}
+@media only screen and (max-width:512px){.plan{padding:0 2rem}
+.plan .current_plan,.plan .detail_button{position:relative;width:100%;left:auto;top:auto}
+.plan_col{width:100%;margin-left:0;float:none}
+.plan_card.plan_card_coming_soon:after{top:3.75rem;font-size:1.25rem}
+.plan_card .hover_card{margin:0 .5rem;width:auto}
+.plan_price{font-size:6.5rem;line-height:6rem}
+.plan_price .currency{font-size:3rem}
+.plan_subhead{margin-top:1.375rem}
+}
+@media only screen and (max-width:480px){#plan_modal{margin-left:2%}
+#plan_modal .modal-body{height:100%;overflow:scroll}
+#plan_modal .plan_description{width:100%;padding-left:1rem;padding-right:1rem}
+#plan_modal .plan_description .ready_to_try_slack{width:19.5rem}
+}
+@media only screen and (max-width:414px){.intro h1{font-size:2.5rem}
+.intro h2{font-size:1.25rem;line-height:1.625rem}
+.amazing_teams_do_more .section_content,.fair_billing_policy .section_content,.from_the_wall_of_love .section_content,.happy_customers .section_content,.need_a_hand .section_content,.nonprofit_pricing .section_content,.our_pricing_perspective .section_content,.ready_to_try_slack .section_content{padding-left:2rem;padding-right:2rem}
+.amazing_teams_do_more .section_content p,.fair_billing_policy .section_content p,.from_the_wall_of_love .section_content p,.happy_customers .section_content p,.need_a_hand .section_content p,.nonprofit_pricing .section_content p,.our_pricing_perspective .section_content p,.ready_to_try_slack .section_content p{font-size:1.125rem;line-height:1.625rem}
+.ready_to_try_slack .section_content{padding:0}
+.nonprofit_pricing .section_content .slack_for_good_logos{height:4.5rem}
+.common_questions_and_resources{padding-top:2rem}
+.common_questions_and_resources .section_content{padding-left:2rem;padding-right:2rem}
+.common_questions_and_resources h2{margin-bottom:4rem;font-size:2.5rem;line-height:3rem}
+.common_questions_and_resources h3{font-size:1.875rem}
+.common_questions_and_resources .question_category{margin-bottom:4rem}
+.common_questions_and_resources .question_category h3{margin-bottom:1.75rem}
+.common_questions_and_resources .question_category ul.question_list li{margin-top:1.25rem;padding-bottom:0}
+.common_questions_and_resources .question_category ul.question_list li p{padding-right:0}
+}

@@ -1,0 +1,156 @@
+@font-face{font-family:appleLogo;src:local("Lucida Grande");unicode-range:U+F8FF}
+.tiny{font-size:.7rem}
+.small{font-size:.9rem}
+.no_pointer_events{pointer-events:none}
+#page{transform:none}
+@media screen and (min-width:768px){.bold_desktop{font-family:Slack-Lato,appleLogo,sans-serif;font-weight:900}
+}
+@media screen and (max-width:512px){.mobile_break{display:block}
+.pricing_tabs .tab_menu .tab{padding-bottom:4rem}
+}
+@media screen and (max-width:768px){.headroom--unpinned+#page .tab_menu{transform:translateY(-208px)}
+}
+@media screen and (max-width:640px){.headroom--unpinned+#page .tab_menu{transform:translateY(-184px)}
+}
+@media screen and (max-width:768px){.tab_menu.hide_mobile_menu{transform:translateY(-114px)}
+.intro{padding-top:269px!important}
+.pricing_header{display:none}
+}
+.pricing_tabs[data-tab-active=tab_enterprise]~.fair_billing_policy{display:none}
+.pricing_tabs{background:#fff;-webkit-tap-highlight-color:transparent;border:0;max-width:860px;width:100%;margin:0 auto 50px;border-radius:0 0 10px 10px;color:#2c2d30}
+.pricing_tabs .panel.active{display:block}
+.pricing_tabs .tab_menu{width:auto;transition:transform .15s cubic-bezier(.2,.3,.25,.9)}
+@media screen and (max-width:768px){.pricing_tabs{margin-bottom:0;border-radius:0;box-shadow:none}
+.pricing_tabs .tab_menu{background-color:#4d6dc3;color:#fff;position:fixed;top:80px;width:100%;z-index:10}
+}
+@media screen and (max-width:640px){.intro{padding-top:196px!important}
+.pricing_tabs .tab_menu{top:64px}
+}
+.pricing_tabs .tab_menu .tab{font-size:1.0625rem;background-color:#dee1e9;box-shadow:inset 0 6px 0 0 #a6aeb8;width:50%;height:60px;transition:box-shadow 125ms ease-out,background-color 125ms ease-out}
+.pricing_tabs .tab_menu .tab.active,.pricing_tabs .tab_menu .tab:active,.pricing_tabs .tab_menu .tab:focus{background-color:#fff;box-shadow:inset 0 6px 0 0 #f6b63f}
+.pricing_tabs .tab_menu .tab:hover:not(.active){background-color:#edeff3;box-shadow:inset 0 6px 0 0 #c2c8cf}
+@media screen and (max-width:768px){.pricing_tabs .tab_menu .tab{background-color:#4d6dc3;box-shadow:none;transition:box-shadow 125ms ease-out}
+.pricing_tabs .tab_menu .tab.active,.pricing_tabs .tab_menu .tab:active,.pricing_tabs .tab_menu .tab:focus{background-color:#4d6dc3;box-shadow:inset 0 -6px 0 0 #f6b63f}
+.pricing_tabs .tab_menu .tab:hover:not(.active){background-color:#4d6dc3;box-shadow:none}
+.pricing_tabs .tab_menu .tab:not(.active) .pricing_tab_menu_header{font-weight:400;opacity:.7}
+}
+.pricing_tabs .alert{margin:1rem auto}
+.pricing_tabs .btn{background-color:#45a1e0}
+.pricing_tabs .plans{padding:0;display:flex;justify-content:space-between}
+.pricing_tabs .plan{margin:0;float:none;width:33%}
+@media screen and (max-width:768px){.pricing_tabs .plans{display:block}
+.pricing_tabs .plan{width:100%;margin-bottom:90px}
+}
+.pricing_tabs .plan.lite{margin-right:20px}
+@media screen and (max-width:768px){.pricing_tabs .plan.lite{margin-right:0}
+}
+.pricing_tabs .plan.standard{margin-left:20px;margin-right:20px}
+@media screen and (max-width:768px){.pricing_tabs .plan.standard{margin-left:0;margin-right:0}
+}
+.pricing_tabs .plan.plus{margin-left:20px}
+.pricing_tabs .plan.active .mobile_accordion_chevron:before{content:'\E261'}
+@media screen and (max-width:512px){.pricing_tabs .plans{padding-bottom:0}
+.pricing_tabs .plan{border-bottom:1px solid #cfcfd0;margin-bottom:0;padding:0}
+.pricing_tabs .plan:last-of-type{border-bottom:0}
+.pricing_tabs .plan .plan_content{max-height:0;overflow:hidden;transition:max-height .6s ease}
+.pricing_tabs .plan .plan_content_container{padding:0 40px 30px}
+}
+.pricing_tabs .plan .plan_content.active{max-height:760px}
+.pricing_tabs .plan .mobile_accordion_chevron{display:none;position:absolute;top:30px;right:-8px}
+.pricing_tabs .plan .mobile_accordion_chevron:before{font-size:1.7rem;color:#45a1e0;content:'\E258'}
+@media screen and (max-width:512px){.pricing_tabs .plan .mobile_accordion_chevron{display:block}
+.pricing_tabs .plan form{display:none}
+}
+.pricing_tabs .plan .mobile_buttons .current_plan,.pricing_tabs .plan .mobile_buttons .detail_button,.pricing_tabs .plan .mobile_buttons form{display:none}
+@media screen and (max-width:512px){.pricing_tabs .plan .mobile_buttons .current_plan:not(.invisible),.pricing_tabs .plan .mobile_buttons .detail_button:not(.invisible),.pricing_tabs .plan .mobile_buttons form:not(.invisible){display:block}
+}
+.pricing_tabs .plan .mobile_buttons a{display:none}
+@media screen and (max-width:768px){.pricing_tabs .plan.plus{margin-left:0}
+.pricing_tabs .plan .mobile_buttons a{display:block}
+.pricing_tabs .hover_card .plan_price_details{display:none}
+}
+@media screen and (max-width:512px){.pricing_tabs .plan .mobile_buttons a{color:#45a1e0;font-size:1rem;font-weight:700;line-height:1.5rem;text-align:center;text-shadow:none;text-decoration:none;border-radius:6px;border:2px solid #45a1e0;margin:0 0 10px;padding-bottom:10px;padding-top:9px;width:100%;min-width:7rem}
+.pricing_tabs .plan ul{margin-bottom:39px}
+}
+.pricing_tabs .plan ul{font-size:1.0625rem}
+.pricing_tabs .plan li span{color:#565759}
+.pricing_tabs .hover_card .plan_price_details{color:#565759;margin-left:0}
+@media screen and (max-width:768px){.pricing_tabs .hover_card p{border-top:1px solid rgba(0,0,0,.2)}
+.pricing_tabs .plan_card{padding-top:0}
+}
+.pricing_tabs .hover_card,.pricing_tabs .plan_card{background-color:#fff!important}
+.pricing_tabs .plan_card{text-shadow:none;color:#2c2d30}
+.pricing_tabs .plan_card:before{background-color:transparent}
+.pricing_tabs .plan_card.curr_plan:before{display:none}
+@media screen and (min-width:512px){.pricing_tabs .plan_card:hover{box-shadow:none}
+}
+@media screen and (max-width:512px){.pricing_tabs .hover_card{margin:0;position:relative}
+.pricing_tabs .hover_card p{margin-right:80px;border-top:0}
+.pricing_tabs .plan_card{text-align:left;min-height:0;box-shadow:0 5px 10px rgba(0,0,0,.2);border-radius:0;padding:40px}
+.pricing_tabs .plan_card .plan_price{font-size:1.8125rem;line-height:1;position:absolute;right:40px;top:36px}
+}
+.pricing_tabs .plan_card .ts_icon_check_circle_o_large{color:#39c299}
+.pricing_tabs .plan_card .plan_type{color:#2c2d30}
+@media screen and (min-width:768px){.pricing_tabs .plan_card:hover{-webkit-transform:none;-moz-transform:none;-ms-transform:none;transform:none}
+.pricing_tabs .plan_card .plan_price{margin-left:-1rem}
+}
+@media screen and (max-width:512px){.pricing_tabs .plan_card .plan_price .cents{font-size:1rem;margin-left:.2rem;top:-.55rem;position:relative}
+.pricing_tabs .plan_price_details{display:none}
+}
+.pricing_tabs a.plan_price_details{color:#3aa3e3;margin-left:1.2rem;font-size:1.0625rem}
+.pricing_tabs .plan_subhead{border-bottom:1px solid #cfcfd0}
+@media screen and (max-width:512px){.pricing_tabs .plan_price_details.plan_price_details_monthly{display:block;margin-top:20px;margin-bottom:0}
+.pricing_tabs .plan_subhead{margin-top:2.2rem}
+}
+.pricing_tabs .pricing_tab_menu_user_count{display:inline-block;font-size:.9375rem}
+@media screen and (max-width:768px){.pricing_tabs .pricing_tab_menu_user_count{display:none;text-align:center;font-size:1.0625rem;margin-bottom:12px}
+}
+.pricing_tabs .currency{color:#a0a0a2;font-size:2.1875rem}
+@media screen and (max-width:512px){.pricing_tabs .btn.create_free,.pricing_tabs .current_plan{display:none}
+.pricing_tabs .currency{font-size:1.5rem;top:-2px}
+}
+.plan.enterprise{display:flex;justify-content:space-around;width:100%}
+.plan.enterprise .plan_image{flex:1;min-width:220px}
+.plan.enterprise .plan_details{flex:2;margin-left:50px}
+.plan.enterprise .plan_card{min-height:0}
+@media screen and (max-width:768px){.plan.enterprise{display:block;padding:0 40px 40px}
+.plan.enterprise .plan_details{margin:0}
+.plan.enterprise .plan_card{padding:0;box-shadow:none;margin-bottom:33px}
+}
+.plan.enterprise .plan_card:hover{transform:none}
+.plan.enterprise .plan_card img{max-width:400px;width:100%;margin-bottom:15px}
+@media screen and (max-width:768px){.plan.enterprise .plan_card img{margin:0 auto;width:100%;padding:0 60px}
+.plan.enterprise .plan_subhead{margin-top:2.2rem}
+.pricing_page_header,.pricing_tab_menu_header{color:#fff}
+}
+@media screen and (max-width:512px){.plan.enterprise .current_plan{display:block}
+}
+.current_plan,.detail_button{margin-top:0;position:relative}
+.coming_soon{background-color:#39c299;padding:0 5px;font-style:italic;color:#fff;text-transform:uppercase}
+@media screen and (max-width:768px){.pricing_page_header{margin:44px 0;font-size:34px;font-weight:800}
+}
+.pricing_tab_menu_header{display:inline-block;font-size:1.0625rem;font-weight:800;margin-right:.4rem;margin-bottom:0;margin-top:.2rem}
+@media screen and (max-width:768px){.pricing_tab_menu_header{margin:0;font-size:1.125rem;line-height:1.4rem}
+}
+.pricing_panel.active{display:block}
+.tab_panels{margin-bottom:50px;box-shadow:0 1px 30px rgba(0,0,0,.1);border-radius:0 0 10px 10px}
+.panel_teams{padding:64px 40px 58px}
+@media screen and (max-width:768px){.tab_panels{margin-bottom:0;box-shadow:none}
+.panel_teams{padding:0}
+}
+.panel_enterprise{padding:64px 90px 58px}
+.panel_enterprise .coming_soon{display:block;margin:0 auto 12px;width:130px}
+.pricing_card_header{margin:0 auto 64px;max-width:430px;font-weight:400;font-size:1.375rem;line-height:1.7rem;text-align:center}
+@media screen and (max-width:768px){.panel_enterprise{padding:0}
+.panel{padding-top:46px}
+.pricing_card_header{font-size:1.125rem;margin:0 auto 80px;padding:0 40px}
+.plan_right_border{display:none}
+}
+@media screen and (max-width:512px){.pricing_card_header{margin-bottom:40px}
+}
+.panel_enterprise .pricing_card_header{max-width:600px}
+.pricing_card_header_callout{font-family:Slack-Lato,appleLogo,sans-serif;font-weight:900}
+.plan_right_border{border-right:1px solid #cfcfd0;position:absolute;right:-22px;top:22px;width:100%;height:80%}
+.new_signup{background-color:#39c299}
+.new_signup .btn{background:#fff;color:#39c299;text-shadow:none;font-weight:600}
+.intro{margin-bottom:0}
