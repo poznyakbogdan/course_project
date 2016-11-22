@@ -49,30 +49,13 @@
 //3		Idop
 //4
 /////-------------------------------------------------------------/////////////////////////
-
-///////////////////////////////////--TmaTable--///////////////////////////////////////////////////////
-//0		min
-//1		max
-//2		Tma
-//-----------------------------------------------------------------------------------------------//////////
-
-
-
 // window.onload = function  () {
-var StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  14,  5,    12,    5],
- 	EndOfLine   = [8,     10, 6,   12,   15,  2,   4,    7,    3,    5,   13,  16,  9,    14,   11],
- 	Snom        = ["TM-63",   "TM-630", 0,    0,   "TM-100", 0,   0,    0,    0,    0,   "TM-63",  "TM-100", 0,     0,    0],
- 	//X0        = [1 ,     1, 0.36, 0.36, 1, 0.36, 0.36, 0.36, 0.36, 0.36, 1,   1, 0.36, 0.36,0.36],
-	lineType    = [1 ,     1, "AS-35", "AS-35", 1, "AS-35", "AS-35", "A-35", "A-35", "AS-35", 1,   1, "A-35", "AS-35","A-35"],
-	Dlina       = [0,      0, 1,    1,    0,   1,  1,    1,    1,    1,    0,   0,   1,    1,    1];
-	var tableOfTma = [
-	[0, 9, 1300],
-	[10, 19, 1700],
-	[20, 49, 2200],
-	[50, 99, 2800],
-	[100, 249, 3200],
-	[250, 9999999, 3400]
-	];
+	// var StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  14,  5,    12,    5],
+	// 	EndOfLine   = [8,     10, 6,   12,   15,  2,   4,    7,    3,    5,   13,  16,  9,    14,   11],
+	// 	Snom        = [63,   630, 0,    0,   100, 0,   0,    0,    0,    0,   63,  100, 0,     0,    0],
+	// 	//X0          = [1 ,     1, 0.36, 0.36, 1, 0.36, 0.36, 0.36, 0.36, 0.36, 1,   1, 0.36, 0.36,0.36],
+	// 	marka       = [1 ,     1, "AS-35", "AS-35", 1, "AS-35", "AS-35", "A-35", "A-35", "AS-35", 1,   1, "A-35", "AS-35","A-35"],
+	// 	Dlina       = [0,      0, 1,    1,    0,   1,  1,    1,    1,    1,    0,   0,   1,    1,    1];
 	var transformData = [
 	["TM-100", 100, 10.5, 1.97, 5.5, 0.73, 6.5],
 	["TM-630", 630, 10.5, 8.5, 5.5, 1.68, 2.0],
@@ -82,12 +65,12 @@ var StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  1
 	["AS-35", 0.79, 0.366, 175],
 	["A-35", 0.85, 0.366, 175]
 	];
-	// var StartOfLine = [1, 2, 3, 2, 4, 5, 4, 6, 7],
-	// 	EndOfLine   = [2, 3, 101, 4, 5, 104, 6, 7, 102],
-	// 	Snom        = [0, 0, "TM-100", 0, 0, "TM-630", 0, 0, "TM-63"],	
-	// 	//X0          = [0.36, 0.36, 16.06, 0.36, 0.36, 3.36 ,0.36, 0.36, 70.27],
-	// 	lineType    = ["AS-35", "AS-35", 7.82, "AS-35", "A-35", 0.85 ,"AS-35", "AS-35", 35.56], 
-	// 	Dlina       = [1, 2, 0, 3, 4, 0, 5, 6, 0];
+	var StartOfLine = [1, 2, 3, 2, 4, 5, 4, 6, 7],
+		EndOfLine   = [2, 3, 101, 4, 5, 104, 6, 7, 102],
+		Snom        = [0, 0, 100, 0, 0, 630, 0, 0, 63],	
+		//X0          = [0.36, 0.36, 16.06, 0.36, 0.36, 3.36 ,0.36, 0.36, 70.27],
+		marka       = ["AS-35", "AS-35", 7.82, "AS-35", "A-35", 0.85 ,"AS-35", "AS-35", 35.56], 
+		Dlina       = [1, 2, 0, 3, 4, 0, 5, 6, 0];
 	var bogdanTest = [];
 	var R0 = [],
 		X0 = [];
@@ -199,7 +182,7 @@ var StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  1
 						array[i][13] = array[i][9] * 0;
 						array[i][14] = array[i][10] * 0;
 					}else {
-						array[i][13] = roundPlus(getWp(array[i][9], array[i][4]), 4);
+						array[i][13] = roundPlus(getWp(array[i][9], 2800), 4);
 						array[i][14] = roundPlus(getWq(array[i][13], 0.75), 4);
 					}
 				}
@@ -209,23 +192,13 @@ var StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  1
 
 	function calcActivePower (array) {
 		for (var i = 0; i < array.length; i++) {
-			if (array[i][5] == 0) {
-				var Snom = findValue(transformData, array[i][4], 1);
-				array[i].push(roundPlus(Snom * cosfi * k_z, 5));	
-			}else {
-				array[i].push(0);	
-			}
+			array[i].push(roundPlus(array[i][4] * cosfi * k_z, 5));
 		}
 	}
 
 	function calcReactivePower (array) {
 		for (var i = 0; i < array.length; i++) {
-			if (array[i][5] == 0 ) {
-				var Snom = findValue(transformData, array[i][4], 1);
-				array[i].push(roundPlus(Snom * sinfi * k_z, 5));
-			}else {
-				array[i].push(0);	
-			}
+			array[i].push(roundPlus(array[i][4] * sinfi * k_z, 5));
 		}
 	}
 
@@ -341,7 +314,7 @@ var StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  1
 
 	function findValue (array, arg, index) {
 		for (var i = 0; i < array.length; i++) {
-			if (array[i][0] == arg){
+			if (array[i][1] == arg){
 				return array[i][index];
 			}
 		}
@@ -478,17 +451,7 @@ var StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  1
 		return mainLineValue;
 	}
 
-	function findTma (Snom) {
-		for (var i = 0; i < tableOfTma.length; i++) {
-			if ( (Snom >= tableOfTma[i][0]) && (Snom <= tableOfTma[i][1]) ) {
-				return tableOfTma[i][2];
-			}
-		}
-	}
-
-	function getWp ( Pj, type) {
-		var Snom = findValue(transformData, type, 1);
-		var Tma = findTma(Snom);
+	function getWp ( Pj, Tma) {
 		var Wp = roundPlus(Pj * Tma, 4);               // 1
 		return Wp;
 	}
@@ -521,8 +484,8 @@ var StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  1
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-	convertingResistance (lineType, 1, true);
-	convertingResistance (lineType, 2, false);
+	convertingResistance (marka, 1, true);
+	convertingResistance (marka, 2, false);
 	
 	for (var i = 0; i < StartOfLine.length; i++) {                     					 
 	 	inpData.push([]);                 	    //-  add the row to array                         			
