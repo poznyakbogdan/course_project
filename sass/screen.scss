@@ -1,0 +1,86 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+.pageLayer{
+	width: 1300px;
+	height: 600px;
+	margin: 0 auto;
+	background: lightblue;
+	position: relative;
+	top: 0px;
+	text-align: center;
+	color: #fff;
+	font-family: Arial, sans-serif;
+	//font-size: 1.6em;
+}
+
+.mainSection{
+	width: 100%;
+	height: 400px;
+	background: red;
+	position: relative;
+}
+.leftColumn{
+	width: 1000px;
+	background: blue;
+	height: auto;
+	padding-bottom: 100px;
+}
+.rightColumn{
+	width: 300px;
+	background: green;
+	height: 400px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.rows > div{
+	width: 20%;
+	height: auto;
+	display: inline-block;
+}
+.rows:nth-child(1):before{
+	content: "1";
+}
+.rows:nth-child(2):before{
+	content: "2";
+}
+.rows:nth-child(3):before{
+	content: "3";
+}
+.rows:nth-child(4):before{
+	content: "4";
+}
+.rows:nth-child(5):before{
+	content: "5";
+}
+.rows:nth-child(6):before{
+	content: "6";
+}
+.rows:nth-child(7):before{
+	content: "7";
+}
+.rows:nth-child(8):before{
+	content: "8";
+}
+.rows:nth-child(9):before{
+	content: "9";
+}
+label.invisible{
+	display: none;
+}
+div.invisible{
+	display: none;
+}
+.rows .selectType{
+	display: block;
+	width: 100%;
+	legend{
+		margin: 0 auto;
+	}
+}

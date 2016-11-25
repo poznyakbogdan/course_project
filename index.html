@@ -3,16 +3,254 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Circiut</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="css/screen.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="jquery-ui/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/main.js" defer></script>
 </head>
 <body>
 	<div class="pageLayer">
-		<div id="output">
-			<textarea id="outputtext">
+		<section class="mainSection">
+			<div class="leftColumn">
+				<h1>
+					Курсовой проект
+				</h1>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, debitis rem inventore, aut labore voluptatibus facilis vel deserunt et, numquam ducimus beatae dicta harum iste rerum odio aliquam voluptatem! Odio.	
+				</p>
+				<strong>
+					Ввод данных
+				</strong>
+				<form id="inputDataForm">
+					<div class="rows">
+					 	<select name="lineType" id="mySelect">
+					    	<option data-line-type="line" selected="selected">Линия</option>
+					    	<option data-line-type="transformer">Трансформатор</option>
+					    </select>
+						<div class="lineBegining">
+							<input type="number" name="lineBegining" placeholder="Номер начала">
+						</div>
+						<div class="lineEnding">
+							<input type="number" name="lineEnding" placeholder="Номер конца">
+						</div>
+						<div class="lineLength">
+							<input type="number" name="lineLength" placeholder="Длина линии">
+						</div>
+						<div class="wireType">
+							<input type="text" name="wireType" placeholder="Марка провода">
+						</div>
+						<div class="invisible nominalPower">
+							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
+						</div>
+						<div class="invisible transformType">
+							<input type="text" name="transformType" placeholder="Тип трансформатора">
+						</div>
+					</div>
+					<div class="rows">
+					 	<select name="lineType" id="mySelect">
+					    	<option data-line-type="line" selected="selected">Линия</option>
+					    	<option data-line-type="transformer">Трансформатор</option>
+					    </select>
+						<div class="lineBegining">
+							<input type="number" name="lineBegining" placeholder="Номер начала">
+						</div>
+						<div class="lineEnding">
+							<input type="number" name="lineEnding" placeholder="Номер конца">
+						</div>
+						<div class="lineLength">
+							<input type="number" name="lineLength" placeholder="Длина линии">
+						</div>
+						<div class="wireType">
+							<input type="text" name="wireType" placeholder="Марка провода">
+						</div>
+						<div class="invisible nominalPower">
+							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
+						</div>
+						<div class="invisible transformType">
+							<input type="text" name="transformType" placeholder="Тип трансформатора">
+						</div>
+					</div>
+					<div class="rows">
+					 	<select name="lineType" id="mySelect">
+					    	<option data-line-type="line" selected="selected">Линия</option>
+					    	<option data-line-type="transformer">Трансформатор</option>
+					    </select>
+						<div class="lineBegining">
+							<input type="number" name="lineBegining" placeholder="Номер начала">
+						</div>
+						<div class="lineEnding">
+							<input type="number" name="lineEnding" placeholder="Номер конца">
+						</div>
+						<div class="lineLength">
+							<input type="number" name="lineLength" placeholder="Длина линии">
+						</div>
+						<div class="wireType">
+							<input type="text" name="wireType" placeholder="Марка провода">
+						</div>
+						<div class="invisible nominalPower">
+							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
+						</div>
+						<div class="invisible transformType">
+							<input type="text" name="transformType" placeholder="Тип трансформатора">
+						</div>
+					</div>
+					<div class="rows">
+					 	<select name="lineType" id="mySelect">
+					    	<option data-line-type="line" selected="selected">Линия</option>
+					    	<option data-line-type="transformer">Трансформатор</option>
+					    </select>
+						<div class="lineBegining">
+							<input type="number" name="lineBegining" placeholder="Номер начала">
+						</div>
+						<div class="lineEnding">
+							<input type="number" name="lineEnding" placeholder="Номер конца">
+						</div>
+						<div class="lineLength">
+							<input type="number" name="lineLength" placeholder="Длина линии">
+						</div>
+						<div class="wireType">
+							<input type="text" name="wireType" placeholder="Марка провода">
+						</div>
+						<div class="invisible nominalPower">
+							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
+						</div>
+						<div class="invisible transformType">
+							<input type="text" name="transformType" placeholder="Тип трансформатора">
+						</div>
+					</div>
+					<div class="rows">
+					 	<select name="lineType" id="mySelect">
+					    	<option data-line-type="line" selected="selected">Линия</option>
+					    	<option data-line-type="transformer">Трансформатор</option>
+					    </select>
+						<div class="lineBegining">
+							<input type="number" name="lineBegining" placeholder="Номер начала">
+						</div>
+						<div class="lineEnding">
+							<input type="number" name="lineEnding" placeholder="Номер конца">
+						</div>
+						<div class="lineLength">
+							<input type="number" name="lineLength" placeholder="Длина линии">
+						</div>
+						<div class="wireType">
+							<input type="text" name="wireType" placeholder="Марка провода">
+						</div>
+						<div class="invisible nominalPower">
+							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
+						</div>
+						<div class="invisible transformType">
+							<input type="text" name="transformType" placeholder="Тип трансформатора">
+						</div>
+					</div>
+					<div class="rows">
+					 	<select name="lineType" id="mySelect">
+					    	<option data-line-type="line" selected="selected">Линия</option>
+					    	<option data-line-type="transformer">Трансформатор</option>
+					    </select>
+						<div class="lineBegining">
+							<input type="number" name="lineBegining" placeholder="Номер начала">
+						</div>
+						<div class="lineEnding">
+							<input type="number" name="lineEnding" placeholder="Номер конца">
+						</div>
+						<div class="lineLength">
+							<input type="number" name="lineLength" placeholder="Длина линии">
+						</div>
+						<div class="wireType">
+							<input type="text" name="wireType" placeholder="Марка провода">
+						</div>
+						<div class="invisible nominalPower">
+							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
+						</div>
+						<div class="invisible transformType">
+							<input type="text" name="transformType" placeholder="Тип трансформатора">
+						</div>
+					</div>					
+					<div class="rows">
+					 	<select name="lineType" id="mySelect">
+					    	<option data-line-type="line" selected="selected">Линия</option>
+					    	<option data-line-type="transformer">Трансформатор</option>
+					    </select>
+						<div class="lineBegining">
+							<input type="number" name="lineBegining" placeholder="Номер начала">
+						</div>
+						<div class="lineEnding">
+							<input type="number" name="lineEnding" placeholder="Номер конца">
+						</div>
+						<div class="lineLength">
+							<input type="number" name="lineLength" placeholder="Длина линии">
+						</div>
+						<div class="wireType">
+							<input type="text" name="wireType" placeholder="Марка провода">
+						</div>
+						<div class="invisible nominalPower">
+							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
+						</div>
+						<div class="invisible transformType">
+							<input type="text" name="transformType" placeholder="Тип трансформатора">
+						</div>
+					</div>
+					<div class="rows">
+					 	<select name="lineType" id="mySelect">
+					    	<option data-line-type="line" selected="selected">Линия</option>
+					    	<option data-line-type="transformer">Трансформатор</option>
+					    </select>
+						<div class="lineBegining">
+							<input type="number" name="lineBegining" placeholder="Номер начала">
+						</div>
+						<div class="lineEnding">
+							<input type="number" name="lineEnding" placeholder="Номер конца">
+						</div>
+						<div class="lineLength">
+							<input type="number" name="lineLength" placeholder="Длина линии">
+						</div>
+						<div class="wireType">
+							<input type="text" name="wireType" placeholder="Марка провода">
+						</div>
+						<div class="invisible nominalPower">
+							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
+						</div>
+						<div class="invisible transformType">
+							<input type="text" name="transformType" placeholder="Тип трансформатора">
+						</div>
+					</div>
+					<div class="rows">
+					 	<select name="lineType" id="mySelect">
+					    	<option data-line-type="line" selected="selected">Линия</option>
+					    	<option data-line-type="transformer">Трансформатор</option>
+					    </select>
+						<div class="lineBegining">
+							<input type="number" name="lineBegining" placeholder="Номер начала">
+						</div>
+						<div class="lineEnding">
+							<input type="number" name="lineEnding" placeholder="Номер конца">
+						</div>
+						<div class="lineLength">
+							<input type="number" name="lineLength" placeholder="Длина линии">
+						</div>
+						<div class="wireType">
+							<input type="text" name="wireType" placeholder="Марка провода">
+						</div>
+						<div class="invisible nominalPower">
+							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
+						</div>
+						<div class="invisible transformType">
+							<input type="text" name="transformType" placeholder="Тип трансформатора">
+						</div>
+					</div>
+				</form>
+				<button id="userBeginData">
+					Ввод
+				</button>
+				<button id="startProgram">
+					Рассчет
+				</button>
+			</div>
+			<div class="rightColumn">
 				
-			</textarea>
-		</div>
+			</div>
+		</section>
 	</div>
 </body>
 </html>

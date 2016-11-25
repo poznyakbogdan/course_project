@@ -59,12 +59,91 @@
 
 
 // window.onload = function  () {
-var StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  14,  5,    12,    5],
- 	EndOfLine   = [8,     10, 6,   12,   15,  2,   4,    7,    3,    5,   13,  16,  9,    14,   11],
- 	Snom        = ["TM-63",   "TM-630", 0,    0,   "TM-100", 0,   0,    0,    0,    0,   "TM-63",  "TM-100", 0,     0,    0],
- 	//X0        = [1 ,     1, 0.36, 0.36, 1, 0.36, 0.36, 0.36, 0.36, 0.36, 1,   1, 0.36, 0.36,0.36],
-	lineType    = [1 ,     1, "AS-35", "AS-35", 1, "AS-35", "AS-35", "A-35", "A-35", "AS-35", 1,   1, "A-35", "AS-35","A-35"],
-	Dlina       = [0,      0, 1,    1,    0,   1,  1,    1,    1,    1,    0,   0,   1,    1,    1];
+////////////////////////////////////////--VIEW--//////////////////////////////////////////////////////
+// var testInput = $("input").attr("lineBegining");
+var Dlina = [],
+	StartOfLine = [],
+	EndOfLine = [],
+	Snom  = [],
+	lineType = [];
+$(document).ready( function () {
+
+   $( "select[name='lineType']" ).change(function (event) {
+	  	var elem = event.target;
+	  	var lineType = $(elem).find('option:selected');
+	  	var text = $(elem).find('option:selected').val();
+	  	var parent = $(elem).parent();
+	  	if ($(lineType).attr("data-line-type") == "line") {
+	  		$(parent).find("div.lineLength").css("display", "inline-block");
+	  		$(parent).find("div.wireType").css("display", "inline-block");
+	  		$(parent).find("div.nominalPower").css("display", "none");
+	  		$(parent).find("div.transformType").css("display", "none");
+	  	}else{
+	  		$(parent).find("div.nominalPower").css("display", "inline-block");
+	  		$(parent).find("div.transformType").css("display", "inline-block");
+	  		$(parent).find("div.lineLength").css("display", "none");
+	  		$(parent).find("div.wireType").css("display", "none");
+	  	}
+
+  });
+
+});
+
+
+$("#userBeginData").click(function () {
+		var user_test_LineBegin = $("input[name='lineBegining']");
+		var user_test_LineEnd = $("input[name='lineEnding']");
+		var user_test_LineLength = $("input[name='lineLength']");
+		var user_test_LineType = $("input[name='wireType']");
+		var user_test_Snom = $("input[name='transformType']");
+
+		StartOfLine.splice(0, StartOfLine.length);
+		EndOfLine.splice(0, EndOfLine.length);
+		Dlina.splice(0, Dlina.length);
+		lineType.splice(0, lineType.length);
+		Snom.splice(0, Snom.length);
+		
+		for (var i = 0; i < user_test_LineBegin.length; i++) {
+			StartOfLine.push(+user_test_LineBegin[i].value);
+			EndOfLine.push(+user_test_LineEnd[i].value);
+
+			if (user_test_LineLength[i].value == "") {
+				Dlina.push(0);
+			}else {
+				Dlina.push(+user_test_LineLength[i].value);	
+			}
+			
+			if (user_test_LineType[i].value == "") {
+				lineType.push(0);
+			}else {
+				lineType.push(user_test_LineType[i].value);	
+			}
+			
+			if (user_test_Snom[i].value == "") {
+				Snom.push(0);
+			}else {
+				Snom.push(user_test_Snom[i].value);	
+			}
+		}	
+	});
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// var StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  14,  5,    12,    5],
+//  	EndOfLine   = [8,     10, 6,   12,   15,  2,   4,    7,    3,    5,   13,  16,  9,    14,   11],
+//  	Snom        = ["TM-63",   "TM-630", 0,    0,   "TM-100", 0,   0,    0,    0,    0,   "TM-63",  "TM-100", 0,     0,    0],
+//  	//X0        = [1 ,     1, 0.36, 0.36, 1, 0.36, 0.36, 0.36, 0.36, 0.36, 1,   1, 0.36, 0.36,0.36],
+// 	lineType    = [1 ,     1, "AS-35", "AS-35", 1, "AS-35", "AS-35", "A-35", "A-35", "AS-35", 1,   1, "A-35", "AS-35","A-35"],
+// 	Dlina       = [0,      0, 1,    1,    0,   1,  1,    1,    1,    1,    0,   0,   1,    1,    1];
 	var tableOfTma = [
 	[0, 9, 1300],
 	[10, 19, 1700],
@@ -521,45 +600,47 @@ var StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  1
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-	convertingResistance (lineType, 1, true);
-	convertingResistance (lineType, 2, false);
+$('#startProgram').click( function () {
 	
-	for (var i = 0; i < StartOfLine.length; i++) {                     					 
-	 	inpData.push([]);                 	    //-  add the row to array                         			
- 		inpData[i].push(StartOfLine[i]);    	  //0  line begine number                    
-		inpData[i].push(EndOfLine[i]);        	//1  line end number                       
-		inpData[i].push(R0[i]);               	//2  resistanse of line                    
-		inpData[i].push(X0[i]);              	 //3  reactive resistance of line           
-		inpData[i].push(Snom[i]);	 	     	//4  power of transformer                  
-		inpData[i].push(Dlina[i]);	          	//5  length of line 
-		//inpData[i].push(Q[i]);                //6  reactive power                       
-	}
-	
-	sortingArrayByIncrease(inpData);                  //sort array by number of line begining
-	inpData[0].push("#");                         //the start line in circiut
-	arrayOfAO(inpData);                               //AO
-	calcActivePower(inpData);
-	calcReactivePower(inpData);
-	floatOfCirciut(inpData);						 
-	activeLost (inpData);
-	reActiveLost(inpData);
-	energyFloat (inpData);
-	lostInCirciut(inpData);
-	transformImagineLost(inpData);
-	voltageFloat(inpData);
-	transformReactiveImagineLost(inpData);
-	dPLost.push(getMainLineValue (inpData, 9, true));
-	dQLost.push(getMainLineValue (inpData, 10, false));
-	finalLost (dPLost);
-	finalLost (dQLost);
-	fulldWLost(dWLost);
-	finalLost (dWLost);
-
-	for (var i = 0; i < inpData.length ; i++) {
-		var a = ""; 
-		for (var j = 0; j < inpData[i].length; j++) {
-			a = a  + inpData[i][j] + " | ";
+		convertingResistance (lineType, 1, true);
+		convertingResistance (lineType, 2, false);
+		
+		for (var i = 0; i < StartOfLine.length; i++) {                     					 
+		 	inpData.push([]);                 	    //-  add the row to array                         			
+	 		inpData[i].push(StartOfLine[i]);    	  //0  line begine number                    
+			inpData[i].push(EndOfLine[i]);        	//1  line end number                       
+			inpData[i].push(R0[i]);               	//2  resistanse of line                    
+			inpData[i].push(X0[i]);              	 //3  reactive resistance of line           
+			inpData[i].push(Snom[i]);	 	     	//4  power of transformer                  
+			inpData[i].push(Dlina[i]);	          	//5  length of line 
+			//inpData[i].push(Q[i]);                //6  reactive power                       
 		}
-		console.log(a);
-	}
+		
+		sortingArrayByIncrease(inpData);                  //sort array by number of line begining
+		inpData[0].push("#");                         //the start line in circiut
+		arrayOfAO(inpData);                               //AO
+		calcActivePower(inpData);
+		calcReactivePower(inpData);
+		floatOfCirciut(inpData);						 
+		activeLost (inpData);
+		reActiveLost(inpData);
+		energyFloat (inpData);
+		lostInCirciut(inpData);
+		transformImagineLost(inpData);
+		voltageFloat(inpData);
+		transformReactiveImagineLost(inpData);
+		dPLost.push(getMainLineValue (inpData, 9, true));
+		dQLost.push(getMainLineValue (inpData, 10, false));
+		finalLost (dPLost);
+		finalLost (dQLost);
+		fulldWLost(dWLost);
+		finalLost (dWLost);
 
+		for (var i = 0; i < inpData.length ; i++) {
+			var a = ""; 
+			for (var j = 0; j < inpData[i].length; j++) {
+				a = a  + inpData[i][j] + " | ";
+			}
+			console.log(a);
+		}
+});
