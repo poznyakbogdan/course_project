@@ -127,10 +127,22 @@ $("#userBeginData").click(function () {
 		}	
 	});
 
+	function addRow () {
+		 var insertElem = $('div.rows:nth-child(1)').clone();
+		 $(insertElem).find("input").val("");
+		 $(insertElem).appendTo("#inputDataForm");
+	}
 
+	// function deleteRow () {
+	// 	$('.rows:last-child').remove();
+	// }
 
-
-
+	$('#row_add').click(addRow);
+	$('#delete_row').click(function(){
+		if ( $('.rows')[1] ){
+			$('.rows:last-child').remove();
+		}
+	});
 
 
 
@@ -159,7 +171,9 @@ $("#userBeginData").click(function () {
 	];
 	var linesData = [
 	["AS-35", 0.79, 0.366, 175],
-	["A-35", 0.85, 0.366, 175]
+	["A-35", 0.85, 0.366, 175],
+	["AS-25", 1.176, 0.377, 130],
+	["A-50", 0.588, 0.355, 210]
 	];
 	// var StartOfLine = [1, 2, 3, 2, 4, 5, 4, 6, 7],
 	// 	EndOfLine   = [2, 3, 101, 4, 5, 104, 6, 7, 102],
@@ -636,11 +650,40 @@ $('#startProgram').click( function () {
 		fulldWLost(dWLost);
 		finalLost (dWLost);
 
-		for (var i = 0; i < inpData.length ; i++) {
-			var a = ""; 
-			for (var j = 0; j < inpData[i].length; j++) {
-				a = a  + inpData[i][j] + " | ";
-			}
-			console.log(a);
+		// for (var i = 0; i < inpData.length ; i++) {
+		// 	var a = ""; 
+		// 	for (var j = 0; j < inpData[i].length; j++) {
+		// 		a = a  + inpData[i][j] + " | ";
+		// 	}
+		// 	console.log(a);
+		// }
+		console.table(inpData);
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////--** output **--///////////////////////////////////////////
+
+
+		function createTd (val) {
+			var text = document.createTextNode(val);
+			var td_elem = document.createElement('td');
+			td_elem.appendChild(text);
+			return td_elem;
 		}
+
+		function createTr (){
+			var tr_elem = document.createElement('tr');
+			return tr_elem;
+		}
+		// var result_table = $('.result_table');
+		for (var i = 0; i < inpData.length; i++) {
+			var tr = createTr ();
+			for (var j = 0; j < inpData[i].length; j++) {
+				tr.appendChild(createTd(inpData[i][j]));
+			}
+			$(tr).appendTo('.result_table');
+		}
+
+
 });
