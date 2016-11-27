@@ -9,11 +9,11 @@
 	width: 1300px;
 	height: 600px;
 	margin: 0 auto;
-	background: lightblue;
+	background: transparent;
 	position: relative;
 	top: 0px;
 	text-align: center;
-	color: #fff;
+	color: black;
 	font-family: Arial, sans-serif;
 	//font-size: 1.6em;
 }
@@ -21,7 +21,7 @@
 .mainSection{
 	width: 100%;
 	height: 600px;
-	background: red;
+	background: transparent;
 	position: relative;
 }
 .leftColumn{
@@ -81,10 +81,10 @@ input{
 // .rows:nth-child(9):before{
 // 	content: "9";
 // }
-label.invisible{
+label.invisibl{
 	display: none;
 }
-div.invisible{
+div.invisibl{
 	display: none;
 }
 .rows .selectType{
@@ -96,8 +96,9 @@ div.invisible{
 }
 .resultSection{
 	width: 100%;
-	height: 500px;
-	background: lightblue;
+	height: auto;
+	background: transparent;
+	padding-top: 75px;
 }
 .result_table td{
 	border: 1px solid black;
@@ -107,3 +108,34 @@ div.invisible{
 .result_table{
 	width: 100%;
 }
+.table td{
+	text-align: center;
+}
+.draw_chart{
+	display: none;
+}
+.rightColumn{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+	background: rgba(0, 0, 0, 0.5);
+}
+button{
+	display: inline-block;
+	width: 80%;
+	box-sizing: border-box;
+	border: 0px;
+	border-radius: 10px;
+	height: 50px;
+	opacity: 0.6;
+	background: #3367d6;
+	transition: all .5s ease;
+}
+button:hover{
+	opacity: 1;
+}
+// #draw_area{
+// 	width: 100%;
+// 	height: 500px;
+// }

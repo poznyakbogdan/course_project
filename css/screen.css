@@ -72,11 +72,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 1300px;
   height: 600px;
   margin: 0 auto;
-  background: lightblue;
+  background: transparent;
   position: relative;
   top: 0px;
   text-align: center;
-  color: #fff;
+  color: black;
   font-family: Arial, sans-serif;
 }
 
@@ -84,7 +84,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .mainSection {
   width: 100%;
   height: 600px;
-  background: red;
+  background: transparent;
   position: relative;
 }
 
@@ -129,12 +129,12 @@ input {
 }
 
 /* line 84, ../sass/screen.scss */
-label.invisible {
+label.invisibl {
   display: none;
 }
 
 /* line 87, ../sass/screen.scss */
-div.invisible {
+div.invisibl {
   display: none;
 }
 
@@ -151,18 +151,56 @@ div.invisible {
 /* line 97, ../sass/screen.scss */
 .resultSection {
   width: 100%;
-  height: 500px;
-  background: lightblue;
+  height: auto;
+  background: transparent;
+  padding-top: 75px;
 }
 
-/* line 102, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
 .result_table td {
   border: 1px solid black;
   text-align: center;
   width: 5%;
 }
 
-/* line 107, ../sass/screen.scss */
+/* line 108, ../sass/screen.scss */
 .result_table {
   width: 100%;
+}
+
+/* line 111, ../sass/screen.scss */
+.table td {
+  text-align: center;
+}
+
+/* line 114, ../sass/screen.scss */
+.draw_chart {
+  display: none;
+}
+
+/* line 117, ../sass/screen.scss */
+.rightColumn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* line 124, ../sass/screen.scss */
+button {
+  display: inline-block;
+  width: 80%;
+  box-sizing: border-box;
+  border: 0px;
+  border-radius: 10px;
+  height: 50px;
+  opacity: 0.6;
+  background: #3367d6;
+  transition: all .5s ease;
+}
+
+/* line 135, ../sass/screen.scss */
+button:hover {
+  opacity: 1;
 }

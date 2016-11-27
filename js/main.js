@@ -144,9 +144,24 @@ $("#userBeginData").click(function () {
 		}
 	});
 
+	$("button[type='reset']").click(function () {
+		$('.rows input').val("");
+	});
 
+	$(".run_width_my_option").click(function () {
+		doWithDataOf25Option();
+		$('#startProgram').click();
+		$('.draw_chart').click();
 
+	})
 
+	function doWithDataOf25Option () {
+		StartOfLine = [1, 2, 3, 2, 4, 5, 4, 6, 7];
+		EndOfLine   = [2, 3, 101, 4, 5, 104, 6, 7, 102];
+		Snom        = [0, 0, "TM-100", 0, 0, "TM-630", 0, 0, "TM-63"];	
+		lineType    = ["AS-35", "AS-35", 7.82, "AS-35", "A-35", 0.85 ,"AS-35", "AS-35", 35.56]; 
+		Dlina       = [1, 2, 0, 3, 4, 0, 5, 6, 0];	
+	}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -685,5 +700,24 @@ $('#startProgram').click( function () {
 			$(tr).appendTo('.result_table');
 		}
 
+
+		lost_table_create(dQLost, "dQ_result_output");
+		lost_table_create(dPLost, "dP_result_output");
+		lost_table_create(dWLost, "dW_result_output");
+
+		// for (var i = 5, tr = createTr(); i < dQLost.length; i++) {
+		// 	$(createTd(dQLost[i])).appendTo(tr);
+		// }
+		// $(tr).appendTo('.dQ_result_output');
+
+		inpData.splice(0, inpData.length);
+
+		function lost_table_create (data, classname) {
+			tr = createTr();
+			for (var i = 5; i < data.length; i++) {
+			$(createTd(data[i])).appendTo(tr);
+			}
+			$(tr).appendTo('.' + classname + "");			
+		}
 
 });

@@ -3,11 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Circiut</title>
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="css/screen.css">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" defer></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="jquery-ui/jquery-ui.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/main.js" defer></script>
+	<script type="text/javascript" src="js/canvas.js" defer></script>
+	<script type="text/javascript" src="js/charts.js" defer></script>
 </head>
 <body>
 	<div class="pageLayer">
@@ -40,10 +45,10 @@
 						<div class="wireType">
 							<input type="text" name="wireType" placeholder="Марка провода">
 						</div>
-						<div class="invisible nominalPower">
+						<div class="invisibl nominalPower">
 							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
 						</div>
-						<div class="invisible transformType">
+						<div class="invisibl transformType">
 							<input type="text" name="transformType" placeholder="Тип трансформатора">
 						</div>
 					</div>
@@ -64,10 +69,10 @@
 						<div class="wireType">
 							<input type="text" name="wireType" placeholder="Марка провода">
 						</div>
-						<div class="invisible nominalPower">
+						<div class="invisibl nominalPower">
 							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
 						</div>
-						<div class="invisible transformType">
+						<div class="invisibl transformType">
 							<input type="text" name="transformType" placeholder="Тип трансформатора">
 						</div>
 					</div>
@@ -88,10 +93,10 @@
 						<div class="wireType">
 							<input type="text" name="wireType" placeholder="Марка провода">
 						</div>
-						<div class="invisible nominalPower">
+						<div class="invisibl nominalPower">
 							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
 						</div>
-						<div class="invisible transformType">
+						<div class="invisibl transformType">
 							<input type="text" name="transformType" placeholder="Тип трансформатора">
 						</div>
 					</div>
@@ -112,10 +117,10 @@
 						<div class="wireType">
 							<input type="text" name="wireType" placeholder="Марка провода">
 						</div>
-						<div class="invisible nominalPower">
+						<div class="invisibl nominalPower">
 							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
 						</div>
-						<div class="invisible transformType">
+						<div class="invisibl transformType">
 							<input type="text" name="transformType" placeholder="Тип трансформатора">
 						</div>
 					</div>
@@ -136,10 +141,10 @@
 						<div class="wireType">
 							<input type="text" name="wireType" placeholder="Марка провода">
 						</div>
-						<div class="invisible nominalPower">
+						<div class="invisibl nominalPower">
 							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
 						</div>
-						<div class="invisible transformType">
+						<div class="invisibl transformType">
 							<input type="text" name="transformType" placeholder="Тип трансформатора">
 						</div>
 					</div>
@@ -160,10 +165,10 @@
 						<div class="wireType">
 							<input type="text" name="wireType" placeholder="Марка провода">
 						</div>
-						<div class="invisible nominalPower">
+						<div class="invisibl nominalPower">
 							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
 						</div>
-						<div class="invisible transformType">
+						<div class="invisibl transformType">
 							<input type="text" name="transformType" placeholder="Тип трансформатора">
 						</div>
 					</div>					
@@ -184,10 +189,10 @@
 						<div class="wireType">
 							<input type="text" name="wireType" placeholder="Марка провода">
 						</div>
-						<div class="invisible nominalPower">
+						<div class="invisibl nominalPower">
 							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
 						</div>
-						<div class="invisible transformType">
+						<div class="invisibl transformType">
 							<input type="text" name="transformType" placeholder="Тип трансформатора">
 						</div>
 					</div>
@@ -208,10 +213,10 @@
 						<div class="wireType">
 							<input type="text" name="wireType" placeholder="Марка провода">
 						</div>
-						<div class="invisible nominalPower">
+						<div class="invisibl nominalPower">
 							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
 						</div>
-						<div class="invisible transformType">
+						<div class="invisibl transformType">
 							<input type="text" name="transformType" placeholder="Тип трансформатора">
 						</div>
 					</div>
@@ -232,14 +237,34 @@
 						<div class="wireType">
 							<input type="text" name="wireType" placeholder="Марка провода">
 						</div>
-						<div class="invisible nominalPower">
+						<div class="invisibl nominalPower">
 							<input type="number" name="nominalPower" placeholder="Номинальная мощность">
 						</div>
-						<div class="invisible transformType">
+						<div class="invisibl transformType">
 							<input type="text" name="transformType" placeholder="Тип трансформатора">
 						</div>
 					</div>
 				</form>
+				<!-- <button id="userBeginData">
+					Ввод
+				</button>
+				<button id="startProgram">
+					Рассчет
+				</button>
+				<button id="row_add">
+					Добавить участок
+				</button>
+				<button id="delete_row">
+					Удалить участок
+				</button>
+				<button type="reset">
+					Очистить все
+				</button>
+				<button class="run_width_my_option">
+					Рассчитать согласно данным из 25 варианта
+				</button> -->
+			</div>
+			<div class="rightColumn">
 				<button id="userBeginData">
 					Ввод
 				</button>
@@ -252,12 +277,18 @@
 				<button id="delete_row">
 					Удалить участок
 				</button>
-			</div>
-			<div class="rightColumn">
-				
+				<button type="reset">
+					Очистить все
+				</button>
+				<button class="run_width_my_option">
+					Рассчитать согласно данным из 25 варианта
+				</button>
 			</div>
 			<div class="resultSection">
-				<table class="result_table">
+				<strong>
+					Таблица всех величин для всех участков 
+				</strong>
+				<table class="table table-bordered result_table table-striped table-hover">
 					<tr class="name_row">
 						<td>Nn</td>
 						<td>Nk</td>
@@ -280,6 +311,66 @@
 						<td>dQxx</td>
 					</tr>
 				</table>
+				<strong>
+					Потери реактивной мощности
+				</strong>
+				<table class="table table-bordered table-striped table-hover">
+					<thead>
+						<tr>
+							<td>dQ%</td>
+							<td>dQt%</td>
+							<td>dQl%</td>
+							<td>dQlt%</td>
+							<td>dQxx%</td>
+						</tr>
+					</thead>
+					<tbody class="dQ_result_output">
+						
+					</tbody>
+				</table>
+				<strong>
+					Потери электроэнергии
+				</strong>
+				<table class="table table-bordered table-striped table-hover">
+					<thead>
+						<tr>
+							<td>dW%</td>
+							<td>dWt%</td>
+							<td>dWl%</td>
+							<td>dWlt%</td>
+							<td>dWxx%</td>
+						</tr>
+					</thead>
+					<tbody class="dW_result_output">
+						
+					</tbody>
+				</table>
+				<strong>
+					Потери активной мощности
+				</strong>
+				<table class="table table-bordered table-striped table-hover">
+					<thead>
+						<tr>
+							<td>dP%</td>
+							<td>dPt%</td>
+							<td>dPl%</td>
+							<td>dPlt%</td>
+							<td>dPxx%</td>
+						</tr>
+					</thead>
+					<tbody class="dP_result_output">
+						
+					</tbody>
+				</table>
+				<div id="dQ_piechart_3d" style="width: 33%; height: 500px; float: left;"></div>
+				<div id="dP_piechart_3d" style="width: 33%; height: 500px; float: left;"></div>
+				<div id="dW_piechart_3d" style="width: 33%; height: 500px; float: left;"></div>
+				<button class="draw_chart">
+					нарисовать
+				</button>
+				<canvas id="draw_area" width="1200" height="500">
+					
+				</canvas>
 			</div>
 		</section>
 	</div>
