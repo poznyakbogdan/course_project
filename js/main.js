@@ -148,19 +148,25 @@ $("#userBeginData").click(function () {
 		$('.rows input').val("");
 	});
 
-	$(".run_width_my_option").click(function () {
-		doWithDataOf25Option();
-		$('#startProgram').click();
-		$('.draw_chart').click();
+	// $(".run_width_my_option").click(function () {
+	// 	doWithDataOf25Option();
+	// 	$('#startProgram').click();
+	// 	$('.draw_chart').click();
 
-	})
+	// })
 
 	function doWithDataOf25Option () {
-		StartOfLine = [1, 2, 3, 2, 4, 5, 4, 6, 7];
-		EndOfLine   = [2, 3, 101, 4, 5, 104, 6, 7, 102];
-		Snom        = [0, 0, "TM-100", 0, 0, "TM-630", 0, 0, "TM-63"];	
-		lineType    = ["AS-35", "AS-35", 7.82, "AS-35", "A-35", 0.85 ,"AS-35", "AS-35", 35.56]; 
-		Dlina       = [1, 2, 0, 3, 4, 0, 5, 6, 0];	
+		// StartOfLine = [1, 2, 3, 2, 4, 5, 4, 6, 7];
+		// EndOfLine   = [2, 3, 101, 4, 5, 104, 6, 7, 102];
+		// Snom        = [0, 0, "TM-100", 0, 0, "TM-630", 0, 0, "TM-63"];	
+		// lineType    = ["AS-35", "AS-35", 7.82, "AS-35", "A-35", 0.85 ,"AS-35", "AS-35", 35.56]; 
+		// Dlina       = [1, 2, 0, 3, 4, 0, 5, 6, 0];	
+		StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  14,  5,    12,    5],
+		EndOfLine   = [8,     10, 6,   12,   15,  2,   4,    7,    3,    5,   13,  16,  9,    14,   11],
+  		Snom        = ["TM-63",   "TM-630", 0,    0,   "TM-100", 0,   0,    0,    0,    0,   "TM-63",  "TM-100", 0,     0,    0],
+  		//X0        = [1 ,     1, 0.36, 0.36, 1, 0.36, 0.36, 0.36, 0.36, 0.36, 1,   1, 0.36, 0.36,0.36],
+ 		lineType    = [1 ,     1, "AS-35", "AS-35", 1, "AS-35", "AS-35", "A-35", "A-35", "AS-35", 1,   1, "A-35", "AS-35","A-35"],
+	 	Dlina       = [0,      0, 1,    1,    0,   1,  1,    1,    1,    1,    0,   0,   1,    1,    1];
 	}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -630,6 +636,7 @@ $("#userBeginData").click(function () {
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 $('#startProgram').click( function () {
+		inpData.splice(0, inpData.length);
 	
 		convertingResistance (lineType, 1, true);
 		convertingResistance (lineType, 2, false);
@@ -710,7 +717,7 @@ $('#startProgram').click( function () {
 		// }
 		// $(tr).appendTo('.dQ_result_output');
 
-		inpData.splice(0, inpData.length);
+		// inpData.splice(0, inpData.length);
 
 		function lost_table_create (data, classname) {
 			tr = createTr();
