@@ -204,3 +204,11 @@ button {
 button:hover {
   opacity: 1;
 }
+
+/* line 142, ../sass/screen.scss */
+.display_circiut_container {
+  width: 100%;
+  height: 700px;
+  overflow: scroll;
+  border: 2px solid black;
+}

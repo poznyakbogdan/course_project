@@ -1,6 +1,34 @@
 function inRad(num) {
 		return num * Math.PI / 180;
 }
+	 var canvas = document.getElementById("draw_area");
+    	var ctx = canvas.getContext("2d");
+    	//ctx.fillRect(500, 500, 130, 10);
+
+
+	function draw_elem (array) {
+		if (array[4] >= 1) {
+			draw_line(array[5], array[6], array[9]);	
+			if (array[4] > 1) {
+				draw_bus(array, array[9]);				
+			}
+		}else if (array[4] == 0) {
+			draw_transformer(array[5], array[6], array[9]);
+		}
+	}
+
+	function draw_bus(array, angle){
+		var l = (array[4] - 1) * 50;
+
+		ctx.translate(array[7], array[8]);
+		ctx.rotate(inRad(angle));		
+		
+		ctx.fillRect(0, -4, l, 8);
+
+		ctx.rotate(-(inRad(angle)));
+		ctx.translate(-array[7], -array[8]);
+
+	}
 
 	function draw_line (x0, y0, angle) {
 		 var canvas = document.getElementById("draw_area");
@@ -25,6 +53,108 @@ function inRad(num) {
 		ctx.rotate(-(inRad(angle)));
 		ctx.translate(-x0, -y0);
 		
+	}
+
+
+	function draw_transformer (x0, y0, angle) {
+		ctx.translate(x0, y0);
+		ctx.rotate(inRad(angle));		
+		
+		var cx = 60;
+		var cy = 0;
+		var r = 10;
+		ctx.beginPath();
+		
+		ctx.moveTo(0, -5);
+		ctx.lineTo(0, 5);
+
+		ctx.moveTo(0, 0);
+		ctx.lineTo(cx - r, 0);
+		ctx.stroke(); 
+		ctx.closePath();
+
+		ctx.beginPath(); 
+		ctx.arc(cx, cy, r, 0, Math.PI*2, false); 
+		ctx.closePath();
+		ctx.stroke(); 
+		
+		cx = cx + 10; 
+
+		ctx.beginPath();
+		ctx.arc(cx, cy, r, 0, Math.PI*2, false);
+		ctx.closePath();
+		ctx.stroke(); 		
+
+		var dl = cx + r;
+
+		ctx.beginPath(); 
+		ctx.moveTo(cx + r, 0);
+		ctx.lineTo(dl + 50, 0);
+		ctx.moveTo(dl + 50, -5);
+		ctx.lineTo(dl + 50, 5);
+		ctx.stroke(); 
+		ctx.closePath();
+
+		ctx.rotate(-(inRad(angle)));
+		ctx.translate(-x0, -y0);
+	
+	}
+
+	function text_out (array) {
+		ctx.translate(array[7], array[8]);
+		//ctx.rotate(-(inRad(array[9])));
+		ctx.textAlign = "center";
+ 	    ctx.textBaseline = "bottom";
+   	    ctx.font = "14pt Arial";
+		//ctx.fillText(array[0], 0, -5);
+		var cords = getCords(array[9]);
+		ctx.fillText(array[1], cords[0], cords[1]);
+		
+		//ctx.rotate((inRad(array[9])));
+		ctx.translate(-array[7], -array[8]);
+	}
+
+	function draw_arrow (array) {
+		ctx.translate(array[5], array[6]);
+		ctx.rotate(inRad(array[9]));		
+		
+		ctx.beginPath();
+		ctx.moveTo(30, -20);
+		ctx.lineTo(90, -20);
+		
+		ctx.moveTo(80, -25);
+		ctx.lineTo(90, -20);
+
+		ctx.moveTo(80, -15);
+		ctx.lineTo(90, -20);
+		
+		ctx.stroke();
+		ctx.closePath();
+
+		ctx.rotate(-(inRad(array[9])));
+		ctx.translate(-array[5], -array[6]);
+		
+	}
+		
+
+	function getCords (angle) {
+		var cords = [];
+		if (angle == 0) {
+			cords[0] = 0;
+			cords[1] = -5;
+		}else if (angle % 180 == 0) {
+			cords[0] = 0;
+			cords[1] = -5;
+		}else if (angle % 90 == 0) {
+			if (angle > 0) {
+				cords[0] = -20;
+				cords[1] = 5;
+			}else{
+				cords[0] = 20;
+				cords[1] = 5;	
+			}	
+		}
+		return cords;
 	}
 
 $(document).ready(function() {
@@ -111,24 +241,28 @@ $(document).ready(function() {
 	// draw_line(130, 0, 0);
 	// draw_line(260, 0, 0);
 	// draw_line(390, 0, -30);
-
+	// fillRect(500, 500, 130, 10);
+	
+	var qwer = 2;
+	text_out(qwer, 100, 100, 0);
+	text_out(qwer, 200, 200, 0);
 
 	$(".run_width_my_option").click(function () {
 		doWithDataOf25Option();
 		$('#startProgram').click();
 		$('.draw_chart').click();
 		
-		draw_circuit()
+		draw_circuit();
 	})
 
 });
 
-	
+
 	function draw_circuit(){
 		var draw_data = get_draw_data();
 		push_K(draw_data);
 		push_N(draw_data);
-		console.table(draw_data);
+		//console.table(draw_data);
 	
 		draw_data[0].push(0);
 		draw_data[0].push(100);
@@ -167,9 +301,13 @@ $(document).ready(function() {
 			if (draw_data[i][4] > 1) {
 					get_bus_data(draw_data, i);	
 			}
-			draw_line(draw_data[i][5], draw_data[i][6], draw_data[i][9]);
+			//draw_transformer(draw_data[i][5], draw_data[i][6], draw_data[i][9]);
+			draw_elem(draw_data[i]);
+			text_out(draw_data[i]);
+			draw_arrow(draw_data[i]);
 
 		}
+		console.table(draw_data);
 
 	}
 
@@ -272,3 +410,23 @@ $(document).ready(function() {
 //10 	length of bus
 
 ///////////////////////////////////////////////////////////////////////////////////
+
+
+
+	// function text_out (array) {
+	// 	ctx.translate(array[7], array[8]);
+	// 	//ctx.rotate(-(inRad(array[9])));
+	// 	ctx.textAlign = "center";
+ // 	    ctx.textBaseline = "bottom";
+ //   	    ctx.font = "14pt Arial";
+	// 	//ctx.fillText(array[0], 0, -5);
+	// 	var cords = getCords(array[9]);
+	// 	ctx.fillText(array[1], cords[0], cords[1]);
+		
+	// 	//ctx.rotate((inRad(array[9])));
+	// 	ctx.translate(-array[7], -array[8]);
+	// }
+// draw_arrow(100, 100, 0);
+// draw_arrow(200, 100, 45);
+// draw_arrow(100, 100, 90);
+// draw_arrow(100, 100, 135);
