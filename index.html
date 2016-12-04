@@ -13,18 +13,30 @@
 	<script type="text/javascript" src="js/main.js" defer></script>
 	<script type="text/javascript" src="js/canvas.js" defer></script>
 	<script type="text/javascript" src="js/charts.js" defer></script>
+	<script type="text/javascript" src="js/runProgram.js" defer></script>
 </head>
 <body>
 	<div class="pageLayer">
+		<header class="header_container">
+			<h1 class="header_title">
+				Курсовая работа
+			</h1>
+			<h2 class="header_under-title">
+				по информатике
+			</h2>
+			<p class="header_under-title">
+				выполнил студент группы 10602215	
+			</p>
+			<h2 class="header_under-title">
+				Позняк Богдан
+			</h2>
+			<button class="get_started" href="#left_block">
+				Просмотр
+			</button>
+		</header>
 		<section class="mainSection">
-			<div class="leftColumn">
-				<h1>
-					Курсовой проект
-				</h1>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, debitis rem inventore, aut labore voluptatibus facilis vel deserunt et, numquam ducimus beatae dicta harum iste rerum odio aliquam voluptatem! Odio.	
-				</p>
-				<strong>
+			<div class="leftColumn" id="left_block">
+				<strong class="draw_area_caption">
 					Ввод данных
 				</strong>
 				<form id="inputDataForm">
@@ -245,24 +257,6 @@
 						</div>
 					</div>
 				</form>
-				<!-- <button id="userBeginData">
-					Ввод
-				</button>
-				<button id="startProgram">
-					Рассчет
-				</button>
-				<button id="row_add">
-					Добавить участок
-				</button>
-				<button id="delete_row">
-					Удалить участок
-				</button>
-				<button type="reset">
-					Очистить все
-				</button>
-				<button class="run_width_my_option">
-					Рассчитать согласно данным из 25 варианта
-				</button> -->
 			</div>
 			<div class="rightColumn">
 				<button id="userBeginData">
@@ -285,9 +279,9 @@
 				</button>
 			</div>
 			<div class="resultSection">
-				<strong>
+				<h2 class="draw_area_caption">
 					Таблица всех величин для всех участков 
-				</strong>
+				</h2>
 				<table class="table table-bordered result_table table-striped table-hover">
 					<tr class="name_row">
 						<td>Nn</td>
@@ -311,9 +305,9 @@
 						<td>dQxx</td>
 					</tr>
 				</table>
-				<strong>
+				<h2 class="draw_area_caption" id="out_info">
 					Потери реактивной мощности
-				</strong>
+				</h2>
 				<table class="table table-bordered table-striped table-hover">
 					<thead>
 						<tr>
@@ -328,9 +322,9 @@
 						
 					</tbody>
 				</table>
-				<strong>
+				<h2 class="draw_area_caption">
 					Потери электроэнергии
-				</strong>
+				</h2>
 				<table class="table table-bordered table-striped table-hover">
 					<thead>
 						<tr>
@@ -345,10 +339,10 @@
 						
 					</tbody>
 				</table>
-				<strong>
+				<h2 class="draw_area_caption">
 					Потери активной мощности
-				</strong>
-				<table class="table table-bordered table-striped table-hover">
+				</h2>
+				<table class="table table-bordered table-striped table-hover dP_table">
 					<thead>
 						<tr>
 							<td>dP%</td>
@@ -362,12 +356,18 @@
 						
 					</tbody>
 				</table>
+				<h2 class="draw_area_caption">
+					Диаграммы потерь в схеме
+				</h2>
 				<div id="dQ_piechart_3d" style="width: 33%; height: 500px; float: left;"></div>
 				<div id="dP_piechart_3d" style="width: 33%; height: 500px; float: left;"></div>
 				<div id="dW_piechart_3d" style="width: 33%; height: 500px; float: left;"></div>
 				<button class="draw_chart">
 					нарисовать
 				</button>
+				<h2 class="draw_area_caption">
+					Графическое представление схемы
+				</h2>
 				<div class="display_circiut_container">	
 					<canvas id="draw_area" width="1700" height="1000">
 						

@@ -1,66 +1,5 @@
-///////////////--inpdData--////////////////////////////////
-//0		start 
-//1		end
-//2		R0
-//3		X0
-//4		Snom
-//5		Dlina
-//6		AO
-//7		Active power
-//8		Reactive power
-//9		Float of active Power (P)
-//10	Float of reactive Power (Q)
-//11    Lost active power (dP)
-//12	Lost reactive power (dQ)
-//13	Float active energy (Wp)
-//14	Float reactive energy (Wq)
-//15	dW(Lines + transformers)
-//16	dPxx
-//17	VoltageFloat(Uk)
-//18	dQxx
-//--------------------------------------------------------//
-
-///////////////////////--transformData--////////////////////////////////////
-//0     name
-//1		Snom
-//2		Unom
-//3		dPkz
-//4		dUkz
-//5		dPxx
-//6		Ixx%
-//-----------------------------------------------------------------------///
-
-////////////////////////////////--d*Lost--/////////////////////////////////////////////
-//0		lineLost
-//1		transformerLost
-//2		xxLost
-//3		fullLost
-//4		*gu
-//5		d%
-//6		dt%
-//7		(dl + dt)%
-//8		dxx%
-///////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////--linesData--/////////////////////////////////////
-//0		marka
-//1		R0
-//2		X0
-//3		Idop
-//4
-/////-------------------------------------------------------------/////////////////////////
-
-///////////////////////////////////--TmaTable--///////////////////////////////////////////////////////
-//0		min
-//1		max
-//2		Tma
-//-----------------------------------------------------------------------------------------------//////////
 
 
-
-// window.onload = function  () {
-////////////////////////////////////////--VIEW--//////////////////////////////////////////////////////
-// var testInput = $("input").attr("lineBegining");
 var Dlina = [],
 	StartOfLine = [],
 	EndOfLine = [],
@@ -90,52 +29,18 @@ $(document).ready( function () {
 });
 
 
-$("#userBeginData").click(function () {
-		var user_test_LineBegin = $("input[name='lineBegining']");
-		var user_test_LineEnd = $("input[name='lineEnding']");
-		var user_test_LineLength = $("input[name='lineLength']");
-		var user_test_LineType = $("input[name='wireType']");
-		var user_test_Snom = $("input[name='transformType']");
-
-		StartOfLine.splice(0, StartOfLine.length);
-		EndOfLine.splice(0, EndOfLine.length);
-		Dlina.splice(0, Dlina.length);
-		lineType.splice(0, lineType.length);
-		Snom.splice(0, Snom.length);
-		
-		for (var i = 0; i < user_test_LineBegin.length; i++) {
-			StartOfLine.push(+user_test_LineBegin[i].value);
-			EndOfLine.push(+user_test_LineEnd[i].value);
-
-			if (user_test_LineLength[i].value == "") {
-				Dlina.push(0);
-			}else {
-				Dlina.push(+user_test_LineLength[i].value);	
-			}
-			
-			if (user_test_LineType[i].value == "") {
-				lineType.push(0);
-			}else {
-				lineType.push(user_test_LineType[i].value);	
-			}
-			
-			if (user_test_Snom[i].value == "") {
-				Snom.push(0);
-			}else {
-				Snom.push(user_test_Snom[i].value);	
-			}
-		}	
-	});
-
 	function addRow () {
 		 var insertElem = $('div.rows:nth-child(1)').clone();
 		 $(insertElem).find("input").val("");
 		 $(insertElem).appendTo("#inputDataForm");
 	}
 
-	// function deleteRow () {
-	// 	$('.rows:last-child').remove();
-	// }
+
+	$('button[href]').click(function(){
+		var target = $(this).attr('href');
+		$('html, body').animate({scrollTop: $(target).offset().top}, 800);
+		return false;
+	});
 
 	$('#row_add').click(addRow);
 	$('#delete_row').click(function(){
@@ -148,25 +53,19 @@ $("#userBeginData").click(function () {
 		$('.rows input').val("");
 	});
 
-	// $(".run_width_my_option").click(function () {
-	// 	doWithDataOf25Option();
-	// 	$('#startProgram').click();
-	// 	$('.draw_chart').click();
-
-	// })
 
 	function doWithDataOf25Option () {
-		StartOfLine = [1, 2, 3, 2, 4, 5, 4, 6, 7];
-		EndOfLine   = [2, 3, 101, 4, 5, 104, 6, 7, 102];
-		Snom        = [0, 0, "TM-100", 0, 0, "TM-630", 0, 0, "TM-63"];	
-		lineType    = ["AS-35", "AS-35", 7.82, "AS-35", "A-35", 0.85 ,"AS-35", "AS-35", 35.56]; 
-		Dlina       = [1, 2, 0, 3, 4, 0, 5, 6, 0];	
-		// StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  14,  5,    12,    5],
-		// EndOfLine   = [8,     10, 6,   12,   15,  2,   4,    7,    3,    5,   13,  16,  9,    14,   11],
-  // 		Snom        = ["TM-63",   "TM-630", 0,    0,   "TM-100", 0,   0,    0,    0,    0,   "TM-63",  "TM-100", 0,     0,    0],
-  // 		//X0        = [1 ,     1, 0.36, 0.36, 1, 0.36, 0.36, 0.36, 0.36, 0.36, 1,   1, 0.36, 0.36,0.36],
- 	// 	lineType    = [1 ,     1, "AS-35", "AS-35", 1, "AS-35", "AS-35", "A-35", "A-35", "AS-35", 1,   1, "A-35", "AS-35","A-35"],
-	 // 	Dlina       = [0,      0, 1,    1,    0,   1,  1,    1,    1,    1,    0,   0,   1,    1,    1];
+		// StartOfLine = [1, 2, 3, 2, 4, 5, 4, 6, 7];
+		// EndOfLine   = [2, 3, 101, 4, 5, 104, 6, 7, 102];
+		// Snom        = [0, 0, "TM-100", 0, 0, "TM-630", 0, 0, "TM-63"];	
+		// lineType    = ["AS-35", "AS-35", 7.82, "AS-35", "A-35", 0.85 ,"AS-35", "AS-35", 35.56]; 
+		// Dlina       = [1, 2, 0, 3, 4, 0, 5, 6, 0];	
+		StartOfLine = [7,     9,  5,   11,   14,  1,   3,    6,    2,    4,   12,  14,  5,    12,    5],
+		EndOfLine   = [8,     10, 6,   12,   15,  2,   4,    7,    3,    5,   13,  16,  9,    14,   11],
+  		Snom        = ["TM-63",   "TM-630", 0,    0,   "TM-100", 0,   0,    0,    0,    0,   "TM-63",  "TM-100", 0,     0,    0],
+  		//X0        = [1 ,     1, 0.36, 0.36, 1, 0.36, 0.36, 0.36, 0.36, 0.36, 1,   1, 0.36, 0.36,0.36],
+ 		lineType    = [1 ,     1, "AS-35", "AS-35", 1, "AS-35", "AS-35", "A-35", "A-35", "AS-35", 1,   1, "A-35", "AS-35","A-35"],
+	 	Dlina       = [0,      0, 1,    1,    0,   1,  1,    1,    1,    1,    0,   0,   1,    1,    1];
 	}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -196,20 +95,11 @@ $("#userBeginData").click(function () {
 	["AS-25", 1.176, 0.377, 130],
 	["A-50", 0.588, 0.355, 210]
 	];
-	// var StartOfLine = [1, 2, 3, 2, 4, 5, 4, 6, 7],
-	// 	EndOfLine   = [2, 3, 101, 4, 5, 104, 6, 7, 102],
-	// 	Snom        = [0, 0, "TM-100", 0, 0, "TM-630", 0, 0, "TM-63"],	
-	// 	//X0          = [0.36, 0.36, 16.06, 0.36, 0.36, 3.36 ,0.36, 0.36, 70.27],
-	// 	lineType    = ["AS-35", "AS-35", 7.82, "AS-35", "A-35", 0.85 ,"AS-35", "AS-35", 35.56], 
-	// 	Dlina       = [1, 2, 0, 3, 4, 0, 5, 6, 0];
-	var bogdanTest = [];
+
 	var R0 = [],
 		X0 = [];
 
-	var testArray = ["A-35", 0, 0, 0, "AS-35", "AS-35", 0, 2, "A-35", "AQ-22", "AS-34"];
-	var AS_35_R0    = 0.79,
-		AS_35_X0    = 0.36,
-		cosfi       = 0.8,
+	var cosfi       = 0.8,
 		sinfi       = 0.6,
 		k_z         = 0.8,
 		Unom        = 10.5,
@@ -220,9 +110,6 @@ $("#userBeginData").click(function () {
 		dQLost = [],
 		dWLost = [],
 		Pgu, Qgu;
-
-	var outString = "";	
-	var parentElem = document.getElementById("outputtext");
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -382,16 +269,6 @@ $("#userBeginData").click(function () {
 			if (array[i][5] != 0) {
 				dW = roundPlus(dW / 1000, 4);
 			}
-
-			console.log("Wp = " + Wp);
-			console.log("Wq = " + Wq);
-			console.log("tgFi = " + tgFi);
-			console.log("Tma = " + Tma);
-			console.log("Kz = " + Kzi);
-			console.log("Kfi = " + Kfi);
-			console.log("dW = " + dW);
-			console.log('r = ' + R);
-			console.log('---------------------------------------')
 			array[i].push(dW);
 		}
 	}	
@@ -399,7 +276,6 @@ $("#userBeginData").click(function () {
 	function transformImagineLost (array) {
 		for (var i = 0; i < array.length; i++) {
 			var dPxx = findValue(transformData, array[i][4], 5);
-			//var dWxx = roundPlus(dPxx * 8760, 4);
 			if (array[i][5] == 0){
 				array[i].push(dPxx);
 			} else {
@@ -412,7 +288,6 @@ $("#userBeginData").click(function () {
 		for (var i = 0; i < array.length; i++) {
 			var Un, Uk, dU;
 			if (i == 0){
-				//array[i].push(U);
 				Un = U;
 
 			}
@@ -423,8 +298,6 @@ $("#userBeginData").click(function () {
 			}
 			dU = getVoltageLost(array[i]);
 			Uk = roundPlus(Un - dU, 4);
-			// console.log("Un " + i + "line = " + Un);
-			// console.log("Uk " + i + "line = " + Uk);
 			array[i].push(Uk);
 		}
 	}
@@ -583,7 +456,6 @@ $("#userBeginData").click(function () {
 		}
 		fullLost = getFullLost(array, lostindex, XXindex);
 		mainLineValue = array[0][index] + fullLost;
-		// console.log(mainLineValue);
 		if (type == true) {
 			dPLost.push(fullLost);
 		}else {
@@ -603,27 +475,27 @@ $("#userBeginData").click(function () {
 	function getWp ( Pj, type) {
 		var Snom = findValue(transformData, type, 1);
 		var Tma = findTma(Snom);
-		var Wp = roundPlus(Pj * Tma, 4);               // 1
+		var Wp = roundPlus(Pj * Tma, 4);               
 		return Wp;
 	}
 
 	function getWq ( Wp, tgFi) {
-		var Wq = roundPlus(Wp * tgFi, 4);              //1.2
+		var Wq = roundPlus(Wp * tgFi, 4);              
 		return Wq;
 	}
 
 	function getTma ( Wp, P) {
-		 var Tma = roundPlus(Wp / P, 4);                //2
+		 var Tma = roundPlus(Wp / P, 4);                
 		 return Tma;
 	}
 
 	function getTangFi (Wq, Wp) {
-		var TangFi = roundPlus(Wq / Wp, 4);              //1.3
+		var TangFi = roundPlus(Wq / Wp, 4);              
 		return TangFi;
 	}
 
 	function getKz (Tma, T) {
-		var Kz = roundPlus(Tma / T, 4);                  //3
+		var Kz = roundPlus(Tma / T, 4);                  
 		return Kz;
 	}
 
@@ -632,99 +504,3 @@ $("#userBeginData").click(function () {
 		return Kfi;
 	}
 
-///////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////
-
-$('#startProgram').click( function () {
-		inpData.splice(0, inpData.length);
-	
-		convertingResistance (lineType, 1, true);
-		convertingResistance (lineType, 2, false);
-		
-		for (var i = 0; i < StartOfLine.length; i++) {                     					 
-		 	inpData.push([]);                 	    //-  add the row to array                         			
-	 		inpData[i].push(StartOfLine[i]);    	  //0  line begine number                    
-			inpData[i].push(EndOfLine[i]);        	//1  line end number                       
-			inpData[i].push(R0[i]);               	//2  resistanse of line                    
-			inpData[i].push(X0[i]);              	 //3  reactive resistance of line           
-			inpData[i].push(Snom[i]);	 	     	//4  power of transformer                  
-			inpData[i].push(Dlina[i]);	          	//5  length of line 
-			//inpData[i].push(Q[i]);                //6  reactive power                       
-		}
-		
-		sortingArrayByIncrease(inpData);                  //sort array by number of line begining
-		inpData[0].push("#");                         //the start line in circiut
-		arrayOfAO(inpData);                               //AO
-		calcActivePower(inpData);
-		calcReactivePower(inpData);
-		floatOfCirciut(inpData);						 
-		activeLost (inpData);
-		reActiveLost(inpData);
-		energyFloat (inpData);
-		lostInCirciut(inpData);
-		transformImagineLost(inpData);
-		voltageFloat(inpData);
-		transformReactiveImagineLost(inpData);
-		dPLost.push(getMainLineValue (inpData, 9, true));
-		dQLost.push(getMainLineValue (inpData, 10, false));
-		finalLost (dPLost);
-		finalLost (dQLost);
-		fulldWLost(dWLost);
-		finalLost (dWLost);
-
-		// for (var i = 0; i < inpData.length ; i++) {
-		// 	var a = ""; 
-		// 	for (var j = 0; j < inpData[i].length; j++) {
-		// 		a = a  + inpData[i][j] + " | ";
-		// 	}
-		// 	console.log(a);
-		// }
-		console.table(inpData);
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////--** output **--///////////////////////////////////////////
-
-
-		function createTd (val) {
-			var text = document.createTextNode(val);
-			var td_elem = document.createElement('td');
-			td_elem.appendChild(text);
-			return td_elem;
-		}
-
-		function createTr (){
-			var tr_elem = document.createElement('tr');
-			return tr_elem;
-		}
-		// var result_table = $('.result_table');
-		for (var i = 0; i < inpData.length; i++) {
-			var tr = createTr ();
-			for (var j = 0; j < inpData[i].length; j++) {
-				tr.appendChild(createTd(inpData[i][j]));
-			}
-			$(tr).appendTo('.result_table');
-		}
-
-
-		lost_table_create(dQLost, "dQ_result_output");
-		lost_table_create(dPLost, "dP_result_output");
-		lost_table_create(dWLost, "dW_result_output");
-
-		// for (var i = 5, tr = createTr(); i < dQLost.length; i++) {
-		// 	$(createTd(dQLost[i])).appendTo(tr);
-		// }
-		// $(tr).appendTo('.dQ_result_output');
-
-		// inpData.splice(0, inpData.length);
-
-		function lost_table_create (data, classname) {
-			tr = createTr();
-			for (var i = 5; i < data.length; i++) {
-			$(createTd(data[i])).appendTo(tr);
-			}
-			$(tr).appendTo('.' + classname + "");			
-		}
-
-});

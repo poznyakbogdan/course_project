@@ -1,10 +1,9 @@
 function inRad(num) {
 		return num * Math.PI / 180;
 }
-	 var canvas = document.getElementById("draw_area");
-    	var ctx = canvas.getContext("2d");
-    	//ctx.fillRect(500, 500, 130, 10);
-
+	var canvas = document.getElementById("draw_area");
+    var ctx = canvas.getContext("2d");
+    
 
 	function draw_elem (array) {
 		if (array[4] >= 1) {
@@ -100,17 +99,27 @@ function inRad(num) {
 	
 	}
 
-	function text_out (array) {
-		ctx.translate(array[7], array[8]);
-		//ctx.rotate(-(inRad(array[9])));
+	function head_line_number(array) {
+		ctx.translate(array[5], array[6]);
+		
 		ctx.textAlign = "center";
  	    ctx.textBaseline = "bottom";
    	    ctx.font = "14pt Arial";
-		//ctx.fillText(array[0], 0, -5);
+	
+		var cords = getCords(array[9]);
+		ctx.fillText(array[0], cords[0], cords[1]);
+		
+		
+		ctx.translate(-array[5], -array[6]);
+	}
+
+	function text_out (array) {
+		ctx.translate(array[7], array[8]);
+		ctx.textAlign = "center";
+ 	    ctx.textBaseline = "bottom";
+   	    ctx.font = "14pt Arial";
 		var cords = getCords(array[9]);
 		ctx.fillText(array[1], cords[0], cords[1]);
-		
-		//ctx.rotate((inRad(array[9])));
 		ctx.translate(-array[7], -array[8]);
 	}
 
@@ -135,7 +144,45 @@ function inRad(num) {
 		ctx.translate(-array[5], -array[6]);
 		
 	}
+
+	function show_value (array, value) {
+		ctx.translate(array[5], array[6]);
 		
+		if ( (array[9] + 90) % 360 == 0 ) {
+			ctx.textAlign = "right";
+		}else {
+			ctx.textAlign = "center";			
+		}
+
+		//ctx.textAlign = "center";
+ 	    ctx.textBaseline = "bottom";
+   	    ctx.font = "italic 11pt Arial";
+		
+		var cords = getValueCords(array[9]);
+		ctx.fillText(value, cords[0], cords[1]);
+		
+		ctx.translate(-array[5], -array[6]);	
+	}
+		
+	function getValueCords(angle) {
+		var cords = [];
+		if (angle == 0) {
+			cords[0] = 50;
+			cords[1] = -25;
+		}else if (angle % 180 == 0) {
+			cords[0] = 50;
+			cords[1] = -25;
+		}else if (angle % 90 == 0) {
+			if (angle > 0) {
+				cords[0] = 50;
+				cords[1] = 70;
+			}else{
+				cords[0] = -30;
+				cords[1] = -55;	
+			}	
+		}
+		return cords;
+	}	
 
 	function getCords (angle) {
 		var cords = [];
@@ -158,117 +205,24 @@ function inRad(num) {
 	}
 
 $(document).ready(function() {
-    var canvas = document.getElementById("draw_area");
-    var ctx = canvas.getContext("2d");
 
-
-	function inRad(num) {
-		return num * Math.PI / 180;
-	}
-
-	ctx.translate(100, 300);
+	 ctx.translate(100, 300);
 	
-
-	function draw_line (x0, y0, angle) {
-		ctx.translate(x0, y0);
-		ctx.rotate(inRad(angle));		
-		
-		ctx.beginPath();
-		ctx.moveTo(0, -5);
-		ctx.lineTo(0, 5);
-
-		ctx.moveTo(0, 0);
-		ctx.lineTo(130, 0);
-		
-		ctx.moveTo(130, -5);
-		ctx.lineTo(130, 5);
-		
-		ctx.stroke();
-		ctx.closePath();
-
-		ctx.rotate(-(inRad(angle)));
-		ctx.translate(-x0, -y0);
-		
-	}
-
-	
-	function draw_transformer (x0, y0, angle) {
-		ctx.translate(x0, y0);
-		ctx.rotate(inRad(angle));		
-		
-		var cx = 60;
-		var cy = 0;
-		var r = 10;
-		ctx.beginPath();
-		
-		ctx.moveTo(0, -5);
-		ctx.lineTo(0, 5);
-
-		ctx.moveTo(0, 0);
-		ctx.lineTo(cx - r, 0);
-		ctx.stroke(); 
-		ctx.closePath();
-
-		ctx.beginPath(); 
-		ctx.arc(cx, cy, r, 0, Math.PI*2, false); 
-		ctx.closePath();
-		ctx.stroke(); 
-		
-		cx = cx + 10; 
-
-		ctx.beginPath();
-		ctx.arc(cx, cy, r, 0, Math.PI*2, false);
-		ctx.closePath();
-		ctx.stroke(); 		
-
-		var dl = cx + r;
-
-		ctx.beginPath(); 
-		ctx.moveTo(cx + r, 0);
-		ctx.lineTo(dl + 50, 0);
-		ctx.moveTo(dl + 50, -5);
-		ctx.lineTo(dl + 50, 5);
-		ctx.stroke(); 
-		ctx.closePath();
-
-		ctx.rotate(-(inRad(angle)));
-		ctx.translate(-x0, -y0);
-	
-	}
-
-
-	// draw_line(0, 0, 0);
-	// draw_line(130, 0, 0);
-	// draw_line(260, 0, 0);
-	// draw_line(390, 0, -30);
-	// fillRect(500, 500, 130, 10);
-	
-	var qwer = 2;
-	text_out(qwer, 100, 100, 0);
-	text_out(qwer, 200, 200, 0);
-
-	$(".run_width_my_option").click(function () {
-		doWithDataOf25Option();
-		$('#startProgram').click();
-		$('.draw_chart').click();
-		
-		draw_circuit();
-	})
-
 });
 
 
-	function draw_circuit(){
+	function draw_circuit(index){
 		var draw_data = get_draw_data();
 		push_K(draw_data);
 		push_N(draw_data);
-		//console.table(draw_data);
 	
 		draw_data[0].push(0);
 		draw_data[0].push(100);
 		draw_data[0].push(130);
 		draw_data[0].push(100);
 		draw_data[0].push(0);
+
+		head_line_number(draw_data[0]);
 
 		for (var i = 0; i < draw_data.length; i++) {
 			var x0, y0, angle, dx, dy, xk, yk, l;
@@ -290,21 +244,17 @@ $(document).ready(function() {
 						draw_data[i].push(angle);
 					}
 
-				}
-
-				// if (draw_data[i][4] > 1) {
-				// 	get_bus_data(draw_data, i);	
-				// }	
+				}	
 
 			}
 
 			if (draw_data[i][4] > 1) {
 					get_bus_data(draw_data, i);	
 			}
-			//draw_transformer(draw_data[i][5], draw_data[i][6], draw_data[i][9]);
 			draw_elem(draw_data[i]);
 			text_out(draw_data[i]);
 			draw_arrow(draw_data[i]);
+			show_value (draw_data[i], inpData[i][index]);
 
 		}
 		console.table(draw_data);
@@ -359,9 +309,9 @@ $(document).ready(function() {
 		 var draw_data = [];
 		 for (var i = 0; i < inpData.length; i++) {
 		 	draw_data.push([]);
-		 	draw_data[i].push(inpData[i][0]);					//Nn
-		 	draw_data[i].push(inpData[i][1]);					//Nk
-		 	draw_data[i].push(inpData[i][6]);					//AO
+		 	draw_data[i].push(inpData[i][0]);					
+		 	draw_data[i].push(inpData[i][1]);				
+		 	draw_data[i].push(inpData[i][6]);					
 		 }
 		 return draw_data;
 	}
@@ -389,44 +339,3 @@ $(document).ready(function() {
 			array[i].push(n);
 		}
 	}
-
-
-
-
-
-
-
-////////////////////////////////////**draw_data**/////////////////////////////////
-//0 	начало участка
-//1 	конец участка
-//2 	AO
-//3		K - порядковый номер ветви относительно разветвления 
-//4		N - количество ветвей на которые разделяется узел
-//5		x0
-//6		y0
-//7		Xk
-//8		Yk
-//9		angle
-//10 	length of bus
-
-///////////////////////////////////////////////////////////////////////////////////
-
-
-
-	// function text_out (array) {
-	// 	ctx.translate(array[7], array[8]);
-	// 	//ctx.rotate(-(inRad(array[9])));
-	// 	ctx.textAlign = "center";
- // 	    ctx.textBaseline = "bottom";
- //   	    ctx.font = "14pt Arial";
-	// 	//ctx.fillText(array[0], 0, -5);
-	// 	var cords = getCords(array[9]);
-	// 	ctx.fillText(array[1], cords[0], cords[1]);
-		
-	// 	//ctx.rotate((inRad(array[9])));
-	// 	ctx.translate(-array[7], -array[8]);
-	// }
-// draw_arrow(100, 100, 0);
-// draw_arrow(200, 100, 45);
-// draw_arrow(100, 100, 90);
-// draw_arrow(100, 100, 135);
