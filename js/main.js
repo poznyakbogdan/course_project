@@ -26,28 +26,8 @@ $(document).ready( function () {
 
   });
 
-  // });
 
 });
-
-	// $( "#inputDataForm" ).delegate("select[name='lineType']", "change", function (event) {
-	//   	var elem = event.target;
-	//   	var lineType = $(elem).find('option:selected');
-	//   	var text = $(elem).find('option:selected').val();
-	//   	var parent = $(elem).parent();
-	//   	if ($(lineType).attr("data-line-type") == "line") {
-	//   		$(parent).find("div.lineLength").css("display", "inline-block");
-	//   		$(parent).find("div.wireType").css("display", "inline-block");
-	//   		$(parent).find("div.nominalPower").css("display", "none");
-	//   		$(parent).find("div.transformType").css("display", "none");
-	//   	}else{
-	//   		$(parent).find("div.nominalPower").css("display", "inline-block");
-	//   		$(parent).find("div.transformType").css("display", "inline-block");
-	//   		$(parent).find("div.lineLength").css("display", "none");
-	//   		$(parent).find("div.wireType").css("display", "none");
-	//   	}
-
- //  });
 
 
 	function addRow () {
