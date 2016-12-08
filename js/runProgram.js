@@ -115,7 +115,7 @@ $('#startProgram').click( function () {
 			$(tr).appendTo('.' + classname + "");			
 		}
 
-		draw_circuit(9);
+		draw_circuit(10);
 		$('.draw_chart').click();
 		scrollToInfo();
 });

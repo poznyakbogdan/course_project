@@ -170,8 +170,13 @@ function inRad(num) {
 			cords[0] = 50;
 			cords[1] = -25;
 		}else if (angle % 180 == 0) {
-			cords[0] = 50;
-			cords[1] = -25;
+			if (angle > 0) {
+				cords[0] = -60;
+				cords[1] = 45;
+			}else{
+				cords[0] = 50;
+				cords[1] = -25;
+			}	
 		}else if (angle % 90 == 0) {
 			if (angle > 0) {
 				cords[0] = 50;
